@@ -1,0 +1,8 @@
+L3_INTENT = 'l3_intent'
+ISSUE_CLUSTER_TITLE = 'issue_cluster_title'
+CUSTOMER_ISSUE_TITLES = 'customer_issue_titles'
+CUSTOMER_ISSUE_DESCRIPTIONS = 'customer_issue_descriptions'
+RESOLUTION_DETAILS = 'resolution_details'
+KBS = 'kbs'
+KB_ARTICLE = 'kb_article'
+NEW_BRAND_DATA = 'new_brand_data'

@@ -1,21 +1,21 @@
 import asyncio
 
 # --- Configurable global variables ---
-brand_name = 'Pixelbloom'
-brand_overview = '''Pixelbloom Studios is a vibrant and innovative force in the indie game development scene. Known for their visually striking and emotionally resonant games, Pixelbloom focuses on creating unique experiences that blend artistic flair with engaging gameplay. Their titles often explore themes of connection, discovery, and the beauty found in unexpected places. With a commitment to fostering a positive and inclusive community, Pixelbloom Studios champions creativity and collaboration, delivering charming and memorable games that leave a lasting impression on players.'''
+brand_name = 'TerraBloom'
+brand_overview = '''TerraBloom Botanicals is a luxury, artisanal skincare and wellness brand dedicated to harnessing the potent power of nature's finest ingredients. We meticulously source rare and organic botanicals from sustainable farms across the globe, crafting small-batch elixirs designed to rejuvenate the skin and soothe the soul. TerraBloom champions a holistic approach to beauty, believing that true radiance comes from a harmonious balance of mind, body, and spirit. Our eco-conscious packaging and ethical production practices reflect our deep commitment to preserving the planet. Indulge in the TerraBloom Botanicals experience, where ancient herbal wisdom meets modern green science to unveil your most luminous self.'''
 
 # Optional/advanced config (step-specific)
-kb_lang = 'Hindi'
+kb_lang = 'French'
 cluster_issue_kbs_concurrency = 5  # For F_cluster_issue_kbs
 cluster_intents_scarcity_threshold = 3  # For E_cluster_intents
 cluster_intents_compression_frequency = 500  # For E_cluster_intents
 qm_n_semaphore = 10  # For J_generate_qm_parameters
 
 sim_n_semaphore = 10 # For K_simulate_conversations
-sim_n_convs = 10  # For K_simulate_conversations
-sim_max_turns = 8  # For K_simulate_conversations
+sim_n_convs = 1000  # For K_simulate_conversations
+sim_max_turns = 80  # For K_simulate_conversations
 sim_get_new_personas = True  # For K_simulate_conversations
-conv_lang = 'Hindi' # For K_simulate_conversations
+conv_lang = 'French' # For K_simulate_conversations
 
 # --- Import process functions from each pipeline step ---
 from pipeline_steps.A_index_generation.code import process as process_A
@@ -63,8 +63,13 @@ async def main():
 
     print("Running K_simulate_conversations...")
     await process_K(
-        brand_name=brand_name, brand_description=brand_overview, n_convs=sim_n_convs, n_semaphores=sim_n_semaphore, max_turns=sim_max_turns,
-        get_new_personas=sim_get_new_personas, conv_lang=conv_lang
+        brand_name=brand_name,
+        brand_description=brand_overview,
+        n_convs=sim_n_convs,
+        n_semaphores=sim_n_semaphore,
+        max_turns=sim_max_turns,
+        get_new_personas=sim_get_new_personas,
+        conv_lang=conv_lang
     )
     print("Pipeline complete!")
 

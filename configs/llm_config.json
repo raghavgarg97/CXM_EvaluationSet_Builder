@@ -23,7 +23,15 @@
   "models_dict": {
     "gpt": {
       "model": "gpt-4o",
-      "provider": "AZURE_OPEN_AI"
+      "provider": "OPEN_AI"
+    },
+    "gpt-4.1": {
+      "model": "gpt-4.1",
+      "provider": "OPEN_AI"
+    },
+    "gpt-4.1-mini": {
+      "model": "gpt-4.1-mini",
+      "provider": "OPEN_AI"
     },
     "o3-mini": {
       "model": "o3-mini",

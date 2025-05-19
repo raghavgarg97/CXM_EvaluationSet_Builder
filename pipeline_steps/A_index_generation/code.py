@@ -561,7 +561,7 @@ async def update_initial_definitions(brand_name, brand_description, all_definiti
         brand_description = brand_description,
         curr_definitions = '\n'.join(f"- {k}: {v}" for k, v in all_definitions.items())
     )
-    res = await llm.chat(prompt, model_name='gpt', task_name='update_initial_definitions', add_prompter=True)
+    res = await llm.chat(prompt, model_name='gpt-4.1', task_name='update_initial_definitions', add_prompter=True)
     # print("Res is", res)
     res = parse_json(res, default_json=all_definitions)
     # print("res parsed is", res)

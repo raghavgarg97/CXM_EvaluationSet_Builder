@@ -114,7 +114,7 @@ async def process_new_question(
     verifier_response = await llm.chat(
         verifier_prompt,
         task_name='verify_question_scenarios',
-        model_name='gpt-mini',
+        model_name='gpt-4.1-mini',
         add_prompter=True,
         temperature=0.1
     )
@@ -250,7 +250,7 @@ async def get_qm_ques(
         all_prompts,
         temperature=0.6,
         batch_size=10,
-        model_name='gpt',  # Unchanged from original logic for extraction
+        model_name='gpt-4.1',  # Unchanged from original logic for extraction
         task_name='get_qm_questions'
     )
 

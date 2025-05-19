@@ -260,7 +260,7 @@ async def modify_agent_persona_qm(agent_personas, no_percentage):
     results = await llm.chat_batch(
         filter_qm_prompts,
         task_name='filer_qm_rules',
-        model_name='gpt',
+        model_name='gpt-4.1',
         add_prompter=True,
         batch_size=10
     )
@@ -641,7 +641,7 @@ async def run_simulations(
         n_semaphores: int,
         max_turns: int,
         conv_lang:str,
-        agent_llm: str = 'gpt',
+        agent_llm: str = 'gpt-4.1',
         customer_llm: str = 'gemini-flash'
 ):
     assert len(agent_personas) == len(customer_personas)
@@ -737,7 +737,7 @@ async def process(brand_name, brand_description, n_convs, n_semaphores, max_turn
         brand_index=brand_index,
         agent_personas=agent_personas,
         customer_personas=customer_personas,
-        agent_llm='gpt',
+        agent_llm='gpt-4.1',
         customer_llm='gemini-flash',
         max_turns=max_turns,
         tools_dict=tools_dict,

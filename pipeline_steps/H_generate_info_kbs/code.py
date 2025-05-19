@@ -284,7 +284,7 @@ async def populate_kbs(
             new_kbs = await llm.chat_batch(
                 failed_prompts,
                 task_name='kb_generation_retry',
-                model_name='gpt-mini',
+                model_name='gpt-4.1-mini',
                 batch_size=len(failed_prompts),
                 temperature=0.6,
                 max_tokens=8000

@@ -24,7 +24,9 @@ def load_prompt(prompt_name: str) -> str:
 # =============================================================================
 # Constants
 # =============================================================================
-URL = "http://qa6-intuitionx-llm-router-v2.sprinklr.com:80/chat-completion"
+llm_config_path = './configs/llm_config.json'
+URL = json.load(open(llm_config_path))['server_url'].replace('batch-chat-completion', 'chat-completion')
+
 MODEL_SKILL      = "gemini-2.0-flash-001"
 MODEL_DEDUPE     = "o4-mini"
 # MODEL_DEDUPE     = "gemini-2.0-flash-001"

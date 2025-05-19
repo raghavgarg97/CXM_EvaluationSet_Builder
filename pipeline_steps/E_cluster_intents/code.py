@@ -108,7 +108,7 @@ async def process_new_issue(
         verifier_response = await llm.chat(
             verifier_prompt,
             task_name='verify_scenarios',
-            model_name='gpt-mini',
+            model_name='gpt-4.1-mini',
             add_prompter=True,
             temperature=0.1
         )

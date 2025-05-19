@@ -1,0 +1,14 @@
+aiohttp
+datasets
+fuzzywuzzy
+google_cloud_aiplatform
+matplotlib
+numpy
+pandas
+scikit_learn
+sentence_transformers
+sympy
+tenacity
+tiktoken
+tqdm
+vertexai

@@ -1,0 +1,64 @@
+You are given an existing list of agent evaluation questions used to measure adherence to provided knowledge bases (KBs). You now have a new evaluation question and three possible integration outputs (scenarios):
+
+1. IGNORE:
+    - Appropriate ONLY if the new question almost fully matches exactly or precisely represents a subset covered by an existing question.
+
+2. UPDATE_EXISTING:
+    - Appropriate ONLY if the new question overlaps strongly with an existing one, allowing the two to be cleanly merged into a concise, atomic question maintaining Yes/No binary clarity WITHOUT conjunctions ('and', 'or').
+
+3. CREATE_NEW:
+    - Appropriate ONLY if the new question introduces a distinctly new scenario or performance evaluation aspect not sufficiently covered by existing ones.
+
+Your task is evaluating provided scenario outputs (IGNORE, UPDATE_EXISTING, and CREATE_NEW) and carefully selecting the optimal scenario according to criteria:
+
+- Atomicity: Each question must center strictly on a single evaluative aspect.
+- Functionality: Clear Yes/No logic based on concrete KB instructions and agents' actions.
+- Simplicity: Questions should remain straightforward and not overly complex.
+
+Existing questions:
+```
+{current_questions}
+```
+
+New Evaluation Question:
+```
+{new_question}
+```
+
+Output from IGNORE scenario:
+```
+{ignore_output}
+```
+
+Output from UPDATE_EXISTING scenario:
+```
+{update_output}
+```
+
+Output from CREATE_NEW scenario:
+```
+{create_new_output}
+```
+
+Output format (JSON):
+{{
+    "reasoning": "<Rigorous, intelligent reasoning about why your chosen scenario best meets the criteria of atomicity, functionality, and simplicity.>",
+    "decision": "<IGNORE / UPDATE_EXISTING / CREATE_NEW>"
+}}
+
+Example:
+```
+New question: "When customers were unsure about their subscription details, did the agent accurately clarify the customer's active subscriptions?"
+
+IGNORE output says a similar and less specific question exists like - "if the agent was unsure about the any of their profile details, did the agent accurately clarify those details".
+UPDATE_EXISTING merges subscription-related questions distinctly.
+CREATE_NEW introduces a completely separate question.
+
+A potential output:
+{{
+    "reasoning": "The IGNORE scenario here excellently covers the new question because the subscription is also a part of the profile detail of the customer. It keeps atomicity by clearly focusing on profile details clarification action without conjunction. UPDATE_EXISTING violates simplicity and saturation principles, CREATE_NEW unnecessarily duplicates a related question.",
+    "decision": "IGNORE"
+}}
+```
+
+Only output the JSON described above and nothing else:

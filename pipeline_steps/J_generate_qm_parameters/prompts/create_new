@@ -1,0 +1,29 @@
+You are given an existing list of evaluation questions used to evaluate customer care agents based on provided knowledge bases (KBs).
+
+Your current task is to construct a new, generalized evaluation question by abstracting slightly from the provided specific new question. This new generalized question should comprehensively cover closely-related customer interaction scenarios, maintain binary (Yes/No) format, while staying atomic—focused on a single behavior or clearly defined performance criterion only.
+
+Output format (JSON):
+{{
+    "reasoning": "<Explain clearly why a new generalized question is needed and how it is different from existing questions, justifying your abstraction clearly.>",
+    "new_question": "<Concise generalized evaluation question clearly phrased in Yes/No form>"
+}}
+
+Currently Provided List of Evaluation Questions:
+```
+{current_questions}
+```
+
+New Evaluation Question:
+```
+{new_question}
+```
+
+For Example:
+If new question: "When the customer reported issues with phone connectivity, did the agent suggest restarting the mobile device?"
+and existing questions have none involving device restart evaluation, suggested generalization might be:
+{{
+    "reasoning": "No existing questions evaluate if an agent recommended generic troubleshooting steps. This generalized version covers restart actions not only for phones, but broadly across similar device-related scenarios.",
+    "new_question": "When customers reported connectivity or technical problems, did the agent suggest appropriate basic troubleshooting steps such as a device restart?"
+}}
+
+Only output the JSON described above and nothing else:

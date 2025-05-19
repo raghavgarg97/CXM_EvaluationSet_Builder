@@ -1,0 +1,28 @@
+Below is a cluster of potentially related nodes in an index. Carefully analyze whether there is any genuinely duplicated information across these nodes. Your goal is to identify and remove only the definitions that are fully subsumed by or identical to another definition, taking into consideration both content and context. Please keep in mind the following criteria to avoid incorrect removals: 
+1. If one node is an ancestor or parent of another, they are not to be considered duplicates in any case even if the content is same or one is fully subsumed by another. [IMPORTANT] 
+2. Properties, attributes, or descriptions that appear similar but belong to different contexts (e.g., different product categories, versions, or specialized use-cases) should not be considered duplicates. 
+3. Even if the description is similar, it is not a duplicate if the context is different. Example: lens type could be the same across multiple mobiles, but if they belong to different models, they are not duplicates. 
+4. Context is much more important than the values. 
+
+Below are the paths and definitions for analysis: 
+{paths_and_defs} 
+
+Please respond in the following JSON format: 
+
+{{ 
+  "duplicates_found": <true or false>, 
+  "redundant_candidates": [ 
+    {{ 
+      "reason": "Justification why this node is fully redundant. Provide references to the criteria above.", 
+      "verdict": "true or false depending on the reason above", 
+      "key": "exact_path_identifying_the_node_to_remove" 
+    }}, 
+    ... 
+  ] 
+}} 
+
+Notes: 
+- If you do not find any duplicates, set "duplicates_found" to false and keep "redundant_candidates" empty. 
+- Provide clear reasoning with reference to the rules above if you decide any key is genuinely redundant. 
+- When in doubt, do not remove a definition, as you only have partial visibility into the complete index. 
+- Parents or Ancestors should not be removed even if they are redundant.

@@ -1,0 +1,8 @@
+You are given a KB about an aspect of the brand. Your task is to thoroughly go through it and extract the most relevant and useful information in a summary paragraph.
+Keep it concise, crisp and all-encompassing.
+
+Given Knowledge Base:
+{kb}
+
+Output only the summary without any justification, explaination or notes.
+Summary: 

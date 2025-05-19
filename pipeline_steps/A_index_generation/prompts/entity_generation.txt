@@ -1,0 +1,22 @@
+We need to create knowledge pool about various aspects of a brand. The purpose of these knowledge pools is to help customer care executives answer the queries of the brand customers. Hence, the goal is to have exhuastive knowledge pools that contain all information about all aspects of the brand no matter how infrequently looked about or minute it is. If a customer could ask about it, it should be there.
+
+The first step in this is to create all the sub entities of various already created entities. You will be given such an entity, it could be at a micro or a macro level. Your task is to do the following
+
+Step-1: First identify if the current entity contains enough information to be broken down into further subentities or categories for better information indexing and management. If not simply output 'str' and nothing else. This would mostly contain very granular information or things like overviews etc.
+Step-2: In case the entity should be broken down into multiple aspects. Your task is to come up with an exhaustive, practical and real world list of sub entities conditioned on the information of the entity provided to you. 
+Step-3: These sub entities are aspects of the entity given and not it's examples. For example the entity is say a particular model variant of a product then the subentities will have keys like overview, specification, launch date, etc etc
+Step-4: In case you are outputting sub entities, the output should follow a fixed format, it would be like this
+
+{{
+    "sub_entity_name": {{
+        "desc": "detailed description of the subentity and what it will comprise of",
+        "precursor": "Other sub_entities present in this JSON. Such that if provided information about them, the Knowledge pools of this sub_entity_would be of much higher quality. Remember that this would be a comma separated list of other keys from this JSON"
+    }}
+}}
+
+Entity Name: {name}
+
+Information about {name}: 
+{info}
+
+Output the JSON containing subentities and nothing else.

@@ -1,0 +1,25 @@
+You are given a list of existing issue descriptions. These are the common issues that customers face and report to customer care.
+
+Your task is to check which of the existing issues is exactly the same or a superset of the new issue.
+Basically, we want an existing issue that already encompasses the functionality or concern of the new issue.
+Keep in mind that the new issue must match exactly (or effectively be a subset of) an existing issue.
+
+The ultimate goal is to create a resolution Knowledge Base from these issues, so finding accurate matches will facilitate efficient resolution documentation.
+
+Output format (JSON):
+{{
+    "reasoning": "<rigorous reasoning as to why this new issue is a subset of one of the existing issues.>",
+    "existing_issue_title": "<exact title of the existing issue from the provided list>"
+}}
+
+Currently Provided List of Issues:
+```
+{current_issues}
+```
+
+New Issue:
+```
+{new_issue}
+```
+
+Only output the JSON described above and nothing else:

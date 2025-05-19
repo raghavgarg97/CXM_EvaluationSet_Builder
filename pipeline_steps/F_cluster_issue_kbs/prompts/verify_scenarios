@@ -1,0 +1,53 @@
+You are given a list of existing issue descriptions. These are the common issues that customers face and report to customer care.
+There are three possible scenarios of how the new issue could be integrated into the existing list of issues:
+
+1. IGNORE
+    a. In this scenario, we ignore the new issue as we already have one of the issues that can be used for the same concern.
+    b. This means that one of the existing issues is already identical to or a superset of the new issue.
+
+2. UPDATE_EXISTING
+    a. In this scenario, we update one of the existing issues to accommodate the new issue concern as well.
+    b. This is only done when the new issue should be such that it can address the concerns of both the existing issues while still being atomic i.e., the new issue should not seem like it is a mixture of two different issues but should feel like a single issue only.
+    c. The new issue should not feel very complex with lots of concerns or a very huge list of problems. One heuristic to check that the new issue is still atomic is that its title should NEVER contain a conjunction like 'and', 'or', etc.
+    d. If you think there is an overlap of more than 50% between the existing and the new issue. Go for this scenario.
+
+3. CREATE_NEW
+    a. In this scenario, we add a new issue to the list of existing issues.
+    b. This is done only when none of the existing issues either completely or mostly overlap with the new issue.
+    c. Use this as a last resort when the new issue is very different and it is apt to generate a brand new issue category for it. If possible try to ignore or merge it.
+    d. This is always done when there are no existing issues present.
+
+Your task is to go through each of the scenarios and identify which one is the best if we want the issues to be:
+a. Atomicity: Each issue must have only a single concern and should not feel like it is a mixture of two issues.
+b. Simplicity: The issues must be simple and should not be complex or having lots of objectives.
+c. Less in Number: The number of list of existing issues should not blow up. Try to keep it to a minimum but merging the issues that are significantly overlapping.
+
+This is crucial for developing an efficient resolution Knowledge Base that will help address customer concerns effectively.
+
+New issue information:
+```
+{new_issue}
+```
+
+Outputs from Scenario 1. IGNORE:
+```
+{ignore_output}
+```
+
+Outputs from Scenario 2. UPDATE_EXISTING:
+```
+{update_output}
+```
+
+Outputs from Scenario 3. CREATE_NEW:
+```
+{create_new_output}
+```
+
+Output format (JSON):
+{{
+    "reasoning": "<rigorously reason which of the three scenarios seems the best moving ahead considering the atomic, simplicity and less in number criteria defined above.>",
+    "decision": "<IGNORE / UPDATE_EXISTING / CREATE_NEW>"
+}}
+
+Only output the JSON described above and nothing else:

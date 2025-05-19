@@ -1,0 +1,820 @@
+{
+    "Demographic Details": {
+      "parent category name": "Demographic Details",
+      "parent category description": "Age, gender, household, family life stage, income, education, occupation, and employment status information about the consumer.",
+      "subcategories": {
+        "Age": {
+          "description": "The consumer's age group or generational bracket.",
+          "all possible values": [
+            "Teens",
+            "20s",
+            "30s",
+            "40s",
+            "50s",
+            "Seniors"
+          ]
+        },
+        "Gender": {
+          "description": "Gender identity or preference.",
+          "all possible values": [
+            "Male",
+            "Female",
+            "Non-binary",
+            "Prefer not to say"
+          ]
+        },
+        "Household Size": {
+          "description": "Number of individuals living in the consumer’s household.",
+          "all possible values": [
+            "Single",
+            "Couples",
+            "Families with Children",
+            "Multigenerational Households"
+          ]
+        },
+        "Family Life Stage": {
+          "description": "Stage of family development.",
+          "all possible values": [
+            "Newlyweds",
+            "New Parents",
+            "Empty Nesters"
+          ]
+        },
+        "Income Bracket": {
+          "description": "Level of disposable income or financial resources.",
+          "all possible values": [
+            "Low",
+            "Medium",
+            "High",
+            "Ultra-high Net Worth"
+          ]
+        },
+        "Education Level": {
+          "description": "Highest educational attainment.",
+          "all possible values": [
+            "High School",
+            "University",
+            "Postgraduate",
+            "Self-taught"
+          ]
+        },
+        "Occupation / Career Field": {
+          "description": "Primary field or industry of employment.",
+          "all possible values": [
+            "Technology",
+            "Healthcare",
+            "Education",
+            "Creative",
+            "Service Industry",
+            "Skilled Trades"
+          ]
+        },
+        "Employment Status": {
+          "description": "Current work situation.",
+          "all possible values": [
+            "Full-time",
+            "Part-time",
+            "Contractor",
+            "Freelancer",
+            "Entrepreneur",
+            "Retired",
+            "Unemployed"
+          ]
+        }
+      }
+    },
+    "Geographic & Cultural Factors": {
+      "parent category name": "Geographic & Cultural Factors",
+      "parent category description": "Location, climate, cultural background, and mobility context shaping the consumer’s environment and lifestyle.",
+      "subcategories": {
+        "Geographic Location": {
+          "description": "Consumer's physical setting.",
+          "all possible values": [
+            "Urban",
+            "Suburban",
+            "Rural",
+            "Various Countries/Regions"
+          ]
+        },
+        "Climate / Weather Context": {
+          "description": "Typical weather conditions or environment where consumers live.",
+          "all possible values": [
+            "Cold Climate",
+            "Tropical Region",
+            "Four-season Location",
+            "Desert",
+            "Coastal Area"
+          ]
+        },
+        "Cultural or Community Background": {
+          "description": "Language, ethnicity, customs, values, and beliefs.",
+          "all possible values": [
+            "Diverse Ethnicities",
+            "Various Languages",
+            "Multiple Religious/Spiritual Beliefs"
+          ]
+        },
+        "Mobility / Transportation": {
+          "description": "Primary means of getting around.",
+          "all possible values": [
+            "Car Owner",
+            "Public Transport User",
+            "Bike Rider",
+            "Rideshare User",
+            "Frequent Flyer"
+          ]
+        }
+      }
+    },
+    "Psychographics & Personality Traits": {
+      "parent category name": "Psychographics & Personality Traits",
+      "parent category description": "Core values, personality, interests, and lifestyle pace that define the consumer’s mindset.",
+      "subcategories": {
+        "Core Values": {
+          "description": "Guiding principles and beliefs.",
+          "all possible values": [
+            "Sustainability",
+            "Family",
+            "Ambition",
+            "Community",
+            "Creativity",
+            "Tradition",
+            "Innovation"
+          ]
+        },
+        "Personality": {
+          "description": "Individual traits describing how consumers behave and interact.",
+          "all possible values": [
+            "Introverted",
+            "Extroverted",
+            "Analytical",
+            "Spontaneous",
+            "Risk-taking",
+            "Risk-averse",
+            "Outgoing",
+            "Reserved"
+          ]
+        },
+        "Personal Interests": {
+          "description": "Activities or hobbies enjoyed by the consumer.",
+          "all possible values": [
+            "Art",
+            "Sports",
+            "Video Games",
+            "Gardening",
+            "Cooking",
+            "Traveling",
+            "Fashion",
+            "Technology",
+            "Philanthropy"
+          ]
+        },
+        "Lifestyle Pace": {
+          "description": "Speed and intensity of daily activity.",
+          "all possible values": [
+            "Relaxed",
+            "Busy",
+            "Always On-the-Go",
+            "Balanced"
+          ]
+        },
+        "Life Goals & Motivations": {
+          "description": "Key aspirations driving consumer actions.",
+          "all possible values": [
+            "Career Progression",
+            "Financial Security",
+            "Social Status",
+            "Personal Fulfillment",
+            "Altruism"
+          ]
+        },
+        "Attitudes Toward Trends": {
+          "description": "Openness or reaction to new ideas or products.",
+          "all possible values": [
+            "Early Adopter",
+            "Mainstream Follower",
+            "Traditionalist",
+            "Skeptical"
+          ]
+        },
+        "Social & Environmental Consciousness": {
+          "description": "Degree of eco-awareness and social responsibility.",
+          "all possible values": [
+            "Highly Eco-conscious",
+            "Moderately Aware",
+            "Indifferent"
+          ]
+        }
+      }
+    },
+    "Purchasing & Shopping Behaviors": {
+      "parent category name": "Purchasing & Shopping Behaviors",
+      "parent category description": "Consumer habits, preferences, and routines regarding how and why they make purchases.",
+      "subcategories": {
+        "Spending Habits": {
+          "description": "Approach to spending money on goods or services.",
+          "all possible values": [
+            "Budget-conscious",
+            "Impulse Buyer",
+            "Splurger",
+            "Value-seeker",
+            "Premium Buyer"
+          ]
+        },
+        "Purchase Frequency": {
+          "description": "How often the consumer buys products or services.",
+          "all possible values": [
+            "Rarely Shops",
+            "Buys Regularly",
+            "Makes Large Infrequent Purchases",
+            "Seasonal Shopper"
+          ]
+        },
+        "Research Habits": {
+          "description": "Approach to gathering information before buying.",
+          "all possible values": [
+            "Thorough Researcher",
+            "Price Comparer",
+            "Spontaneous Buyer",
+            "Brand Loyalist",
+            "Review-reader"
+          ]
+        },
+        "Loyalty Orientation": {
+          "description": "Willingness to stick to a brand or explore alternatives.",
+          "all possible values": [
+            "Brand Loyal",
+            "Variety-seeker",
+            "Indifferent",
+            "Deal Chaser",
+            "Subscription-friendly"
+          ]
+        },
+        "Preferred Shopping Channels": {
+          "description": "Where or how the consumer prefers to shop.",
+          "all possible values": [
+            "Physical Stores",
+            "Online Marketplaces",
+            "Brand Websites",
+            "Social Media",
+            "Phone Orders"
+          ]
+        },
+        "Preferred Payment Methods": {
+          "description": "How the consumer typically pays for purchases.",
+          "all possible values": [
+            "Cash",
+            "Credit Cards",
+            "Digital Wallets",
+            "Buy-Now-Pay-Later",
+            "Cryptocurrency"
+          ]
+        },
+        "Return / Exchange Behavior": {
+          "description": "Tendency to return or exchange items.",
+          "all possible values": [
+            "Frequent Returns",
+            "Rarely Returns",
+            "Checks Policies Carefully",
+            "Doesn’t Care Much"
+          ]
+        }
+      }
+    },
+    "Digital & Technology Usage": {
+      "parent category name": "Digital & Technology Usage",
+      "parent category description": "Consumer’s level of tech-savviness, device ownership, online connectivity, and privacy concerns.",
+      "subcategories": {
+        "Device Ownership / Usage": {
+          "description": "Types of devices the consumer owns or uses regularly.",
+          "all possible values": [
+            "Smartphone",
+            "Tablet",
+            "Laptop",
+            "Desktop",
+            "Smart Home Devices",
+            "Wearables"
+          ]
+        },
+        "Tech Savviness": {
+          "description": "Consumer’s ability to adopt and master new technologies.",
+          "all possible values": [
+            "Tech Novice",
+            "Average User",
+            "Power User",
+            "Early Adopter",
+            "Tech-savvy Professional"
+          ]
+        },
+        "Connectivity": {
+          "description": "How often and extensively the consumer stays online.",
+          "all possible values": [
+            "Constantly Online",
+            "Moderate Usage",
+            "Only Uses Tech When Necessary",
+            "Offline-preferred"
+          ]
+        },
+        "Social Media Habits": {
+          "description": "Level and style of engagement on social platforms.",
+          "all possible values": [
+            "Active on All Platforms",
+            "Only on Niche Platforms",
+            "Rarely Posts",
+            "Frequent Lurker"
+          ]
+        },
+        "Preferred Digital Channels": {
+          "description": "Contact or communication channels commonly used by the consumer.",
+          "all possible values": [
+            "Email",
+            "SMS",
+            "Apps",
+            "Social Media",
+            "Chatbots",
+            "Voice Assistants"
+          ]
+        },
+        "Data Privacy Attitude": {
+          "description": "Concerns and approach to data security and privacy.",
+          "all possible values": [
+            "Highly Cautious",
+            "Moderately Aware",
+            "Indifferent",
+            "Expects Strong Security"
+          ]
+        }
+      }
+    },
+    "Brand Perceptions & Attitudes": {
+      "parent category name": "Brand Perceptions & Attitudes",
+      "parent category description": "How consumers view, feel about, and engage with the brand, including competitor awareness.",
+      "subcategories": {
+        "Brand Awareness": {
+          "description": "Consumer’s familiarity with the brand.",
+          "all possible values": [
+            "Completely Unaware",
+            "Slightly Familiar",
+            "Well-Informed",
+            "Enthusiast"
+          ]
+        },
+        "Product Knowledge": {
+          "description": "How much the consumer knows about the offerings.",
+          "all possible values": [
+            "None",
+            "Basic",
+            "Moderate",
+            "Expert-level"
+          ]
+        },
+        "Brand Affinity / Sentiment": {
+          "description": "Emotional connection or stance toward the brand.",
+          "all possible values": [
+            "Positive",
+            "Neutral",
+            "Negative",
+            "Skeptical"
+          ]
+        },
+        "Brand Engagement": {
+          "description": "How consumers interact with the brand’s content or community.",
+          "all possible values": [
+            "Follows on Social Media",
+            "Opens Newsletters",
+            "Attends Brand Events",
+            "Contributes to Forums"
+          ]
+        },
+        "Competitor Awareness": {
+          "description": "Knowledge and consideration of competing brands.",
+          "all possible values": [
+            "Knows Nothing About Competitors",
+            "Shops Around Often",
+            "Loyal to Competitor",
+            "Brand-switcher"
+          ]
+        },
+        "Price Sensitivity": {
+          "description": "Extent to which price influences purchasing decisions.",
+          "all possible values": [
+            "Highly Sensitive",
+            "Moderately Sensitive",
+            "Less Sensitive",
+            "Premium Buyer"
+          ]
+        }
+      }
+    },
+    "Stage Within the Customer Journey": {
+      "parent category name": "Stage Within the Customer Journey",
+      "parent category description": "Position of the consumer in the awareness-to-purchase cycle.",
+      "subcategories": {
+        "Unaware": {
+          "description": "Does not recognize the problem or need for a solution.",
+          "all possible values": [
+            "No brand knowledge",
+            "No problem recognition"
+          ]
+        },
+        "Problem-Aware": {
+          "description": "Knows the problem but not specific solutions or brands.",
+          "all possible values": [
+            "Researching general solutions",
+            "Identifying pain points"
+          ]
+        },
+        "Solution-Aware": {
+          "description": "Understands solutions exist and is researching options.",
+          "all possible values": [
+            "Comparing different approaches",
+            "Reading reviews"
+          ]
+        },
+        "Brand-Aware": {
+          "description": "Knows your brand’s specific offering.",
+          "all possible values": [
+            "Evaluating brand credibility",
+            "Considering brand features"
+          ]
+        },
+        "Ready to Purchase": {
+          "description": "Prepared to make a purchase decision soon.",
+          "all possible values": [
+            "Final comparison",
+            "Budget check",
+            "Buying triggers"
+          ]
+        },
+        "Post-Purchase": {
+          "description": "Has purchased and is currently using the product/service.",
+          "all possible values": [
+            "User experience feedback",
+            "Possible returns or exchanges",
+            "Feature exploration"
+          ]
+        },
+        "Retention / Advocacy": {
+          "description": "Likely to repurchase or recommend the brand to others.",
+          "all possible values": [
+            "Repeat buying",
+            "Referring friends",
+            "Writing testimonials"
+          ]
+        }
+      }
+    },
+    "Interaction with Customer Support & Documents": {
+      "parent category name": "Interaction with Customer Support & Documents",
+      "parent category description": "Preferred methods of support contact, documentation availability, and conflict resolution styles.",
+      "subcategories": {
+        "Support Channel Preference": {
+          "description": "How the consumer prefers to communicate for help or issues.",
+          "all possible values": [
+            "Phone Call",
+            "Email",
+            "Live Chat",
+            "In-person",
+            "Social Media"
+          ]
+        },
+        "Documentation / ID": {
+          "description": "Level of organization or availability of valid paperwork and IDs.",
+          "all possible values": [
+            "Has All Valid IDs",
+            "Missing Some Paperwork",
+            "Highly Organized",
+            "Minimal Documentation"
+          ]
+        },
+        "Self-Service Openness": {
+          "description": "Willingness to find solutions independently.",
+          "all possible values": [
+            "Prefers Self-service Knowledge Base",
+            "Searches Forums First",
+            "Calls Support Immediately"
+          ]
+        },
+        "Language Proficiency": {
+          "description": "Ease of communication in various languages or specialized jargon.",
+          "all possible values": [
+            "Multilingual",
+            "Limited English",
+            "Requires Translation",
+            "Industry-specific Jargon"
+          ]
+        },
+        "Conflict Resolution Appetite": {
+          "description": "How the consumer handles disputes or problems.",
+          "all possible values": [
+            "Calm",
+            "Quick to Anger",
+            "Problem Solver",
+            "Collaborator",
+            "Passive"
+          ]
+        }
+      }
+    },
+    "Emotional & Mental State": {
+      "parent category name": "Emotional & Mental State",
+      "parent category description": "Consumer’s current emotional condition, stress levels, and confidence, which influence decision-making.",
+      "subcategories": {
+        "Current Mood": {
+          "description": "General emotional status during interaction with the brand.",
+          "all possible values": [
+            "Excited",
+            "Anxious",
+            "Frustrated",
+            "Indifferent",
+            "Curious",
+            "Skeptical",
+            "Optimistic"
+          ]
+        },
+        "Stress Level": {
+          "description": "Overall stress or pressure affecting the consumer’s behavior.",
+          "all possible values": [
+            "High-stress Environment",
+            "Moderate Stress",
+            "Low-stress Lifestyle"
+          ]
+        },
+        "Emotional Triggers": {
+          "description": "Situations or stimuli that provoke strong emotional responses.",
+          "all possible values": [
+            "Time Pressure",
+            "Budget Constraints",
+            "Fear of Missing Out",
+            "Moral or Social Causes"
+          ]
+        },
+        "Confidence Level": {
+          "description": "Degree of self-assurance or certainty.",
+          "all possible values": [
+            "Very Confident",
+            "Somewhat Cautious",
+            "Insecure",
+            "Overwhelmed"
+          ]
+        }
+      }
+    },
+    "Habits, Routines, & Lifestyle": {
+      "parent category name": "Habits, Routines, & Lifestyle",
+      "parent category description": "Patterns of daily behavior, health orientation, and recreational interests shaping how a consumer allocates time and resources.",
+      "subcategories": {
+        "Daily Routine": {
+          "description": "Typical schedule or time-of-day preferences.",
+          "all possible values": [
+            "Early Riser",
+            "Night Owl",
+            "Unpredictable Schedule",
+            "Shift Worker"
+          ]
+        },
+        "Health & Wellness": {
+          "description": "Approach to personal fitness and diet.",
+          "all possible values": [
+            "Fitness Enthusiast",
+            "Casual Exerciser",
+            "Health-conscious Eater",
+            "Not Health-focused"
+          ]
+        },
+        "Recreational Activities": {
+          "description": "Free-time pursuits and hobbies.",
+          "all possible values": [
+            "Outdoor Adventures",
+            "Netflix Binging",
+            "Gaming",
+            "Crafts",
+            "Volunteering",
+            "Social Clubs"
+          ]
+        },
+        "Travel Frequency": {
+          "description": "How often and how far the consumer travels.",
+          "all possible values": [
+            "Frequent Flyer",
+            "Occasional Traveler",
+            "Road Tripper",
+            "Travel-averse"
+          ]
+        },
+        "Social Circles": {
+          "description": "Nature and makeup of social connections.",
+          "all possible values": [
+            "Close-knit Friends",
+            "Large Social Network",
+            "Online Communities",
+            "Family-centered"
+          ]
+        }
+      }
+    },
+    "Communication & Messaging Preferences": {
+      "parent category name": "Communication & Messaging Preferences",
+      "parent category description": "Consumer’s desired tone, format, and frequency of brand communications.",
+      "subcategories": {
+        "Tone of Voice Preference": {
+          "description": "How a consumer prefers to be addressed.",
+          "all possible values": [
+            "Formal",
+            "Casual",
+            "Friendly",
+            "Authoritative",
+            "Techy",
+            "Creative",
+            "Humorous"
+          ]
+        },
+        "Content Format": {
+          "description": "Types of media or content the consumer engages with.",
+          "all possible values": [
+            "Video",
+            "Text",
+            "Audio/Podcast",
+            "Infographics",
+            "Long-form Articles",
+            "Short Social Posts"
+          ]
+        },
+        "Frequency of Communication": {
+          "description": "How often the consumer wants to receive brand messages.",
+          "all possible values": [
+            "Frequent Updates",
+            "Monthly Newsletters",
+            "Minimal Outreach"
+          ]
+        },
+        "Trust in Recommendations": {
+          "description": "Sources from which the consumer accepts endorsements or guidance.",
+          "all possible values": [
+            "Peer Reviews",
+            "Influencer Endorsements",
+            "Expert Opinions",
+            "Standard Advertising"
+          ]
+        }
+      }
+    },
+    "Time & Availability Factors": {
+      "parent category name": "Time & Availability Factors",
+      "parent category description": "Scheduling constraints and urgency that influence how quickly a consumer may act or decide.",
+      "subcategories": {
+        "Time Constraints": {
+          "description": "How busy or flexible the consumer’s schedule is.",
+          "all possible values": [
+            "Busy Professional",
+            "Flexible Schedule",
+            "Caregiver with Odd Hours",
+            "Student with Classes"
+          ]
+        },
+        "Urgency of Need": {
+          "description": "How quickly the consumer requires a solution.",
+          "all possible values": [
+            "Immediate Requirement",
+            "Can Wait",
+            "Purely Exploratory"
+          ]
+        },
+        "Decision-Making Speed": {
+          "description": "How fast a consumer typically arrives at a purchase decision.",
+          "all possible values": [
+            "Instant Decisions",
+            "Slow and Methodical",
+            "Needs Group Input"
+          ]
+        }
+      }
+    },
+    "Brand Relevance & Product Fit": {
+      "parent category name": "Brand Relevance & Product Fit",
+      "parent category description": "Ways in which the consumer’s use case or scenario aligns with your brand’s offerings.",
+      "subcategories": {
+        "Use Cases / Scenarios": {
+          "description": "Reasons or contexts for product usage.",
+          "all possible values": [
+            "Personal Use",
+            "Business Use",
+            "Gift-giving",
+            "Professional Setting",
+            "Everyday or Special Occasion"
+          ]
+        },
+        "Compatibility Needs": {
+          "description": "Requirement for product integration with existing systems or processes.",
+          "all possible values": [
+            "Must Integrate with Existing Workflow",
+            "Open to New Solutions"
+          ]
+        },
+        "Customization vs. Off-the-Shelf": {
+          "description": "Preference for ready-made vs. tailored solutions.",
+          "all possible values": [
+            "Highly Customized Products",
+            "Quick Off-the-Shelf Solutions"
+          ]
+        },
+        "Scale of Purchase": {
+          "description": "Size or volume of the consumer’s purchase.",
+          "all possible values": [
+            "Single Item",
+            "Bulk Purchase",
+            "Multi-license",
+            "Enterprise-level"
+          ]
+        }
+      }
+    },
+    "Obstacles & Barriers": {
+      "parent category name": "Obstacles & Barriers",
+      "parent category description": "Potential limitations or concerns that prevent a consumer from buying or fully engaging.",
+      "subcategories": {
+        "Budget Constraints": {
+          "description": "Financial limitations influencing what they can spend.",
+          "all possible values": [
+            "Limited Funds",
+            "Open Budget",
+            "Requires Cost Justification"
+          ]
+        },
+        "Time Constraints for Research": {
+          "description": "How much time a consumer is willing or able to spend on exploration.",
+          "all possible values": [
+            "No Time for Deep Research",
+            "Enjoys Thorough Comparison",
+            "Leans on Quick References"
+          ]
+        },
+        "Trust Issues": {
+          "description": "Skepticisms due to past experiences or brand unfamiliarity.",
+          "all possible values": [
+            "Skeptical of New Offerings",
+            "Burned by Previous Purchases",
+            "Brand Trust Issues"
+          ]
+        },
+        "Technical Constraints": {
+          "description": "Limitations with hardware, software, or connectivity.",
+          "all possible values": [
+            "Minimal Device Memory",
+            "Bandwidth-limited",
+            "Older Hardware",
+            "Restricted Environment"
+          ]
+        },
+        "Accessibility Requirements": {
+          "description": "Special needs for product use or brand interaction.",
+          "all possible values": [
+            "Screen Readers",
+            "Large Font",
+            "Voice Control",
+            "Sign Language",
+            "Mobility Support"
+          ]
+        },
+        "Regulatory / Compliance Constraints": {
+          "description": "Industries or situations where laws or formal policies apply.",
+          "all possible values": [
+            "Industry Regulations",
+            "Age Restrictions",
+            "Corporate-approved Vendors Only"
+          ]
+        }
+      }
+    },
+    "Brand Development & Advocacy": {
+      "parent category name": "Brand Development & Advocacy",
+      "parent category description": "Potential for consumers to become brand ambassadors, share feedback, or be critical.",
+      "subcategories": {
+        "Ambassador Potential": {
+          "description": "Willingness to support or promote the brand.",
+          "all possible values": [
+            "Refers Others",
+            "Shares Discount Codes",
+            "Creates User-generated Content"
+          ]
+        },
+        "Critic or Dissenter": {
+          "description": "Likelihood of publicly voicing dissatisfaction or criticism.",
+          "all possible values": [
+            "Vocal about Negative Experiences",
+            "Writes Critical Reviews",
+            "Leaves Dissatisfaction Notes"
+          ]
+        },
+        "Feedback Sharing": {
+          "description": "Whether and how consumers leave reviews or suggestions.",
+          "all possible values": [
+            "Gives Constructive Feedback",
+            "Silent User",
+            "Brand Evangelist",
+            "Neutral Observer"
+          ]
+        }
+      }
+    }
+  }

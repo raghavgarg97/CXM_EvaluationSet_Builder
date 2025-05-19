@@ -1,0 +1,35 @@
+You are provided an existing list of evaluation questions used to assess customer care agent adherence to provided knowledge bases (KBs).
+
+Your task consists of these steps:
+1. Carefully identify one existing evaluation question that strongly overlaps (conceptually/contextually) with the new question provided.
+2. Clearly merge these two evaluation questions into a single general but concise evaluation question. The merged question must remain atomic (single performance criterion), binary (Yes/No), and never contain conjunctions ("and", "or", etc.).
+
+Output format (JSON):
+{{
+    "reasoning": "<Detailed reasoning about the selection and how you achieved a single, atomic evaluation focus clearly in binary Yes/No format.>",
+    "old_question": "<Exact text of the existing evaluation question chosen for updating>",
+    "merged_question": "<Concise, clearly phrased merged evaluation question in Yes/No form>"
+}}
+
+Currently Provided List of Evaluation Questions:
+```
+{current_questions}
+```
+
+New Evaluation Question:
+```
+{new_question}
+```
+
+For Example:
+Old question: "Given the customer was annoyed, did the agent offer an apology?"
+New question: "When customer seemed irritated, did the agent empathetically apologize?"
+
+Merged question might be:
+{{
+    "reasoning": "Both questions evaluate the same scenario—agent apology during customer dissatisfaction or annoyance. Merged clearly without using conjunctions, keeping atomicity intact.",
+    "old_question": "Given the customer was annoyed, did the agent offer an apology?",
+    "merged_question": "When the customer showed any dissatisfactory emotions, did the agent appropriately apologize?"
+}}
+
+Only output the JSON described above and nothing else:

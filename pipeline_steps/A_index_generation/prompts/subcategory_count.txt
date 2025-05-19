@@ -1,0 +1,25 @@
+You are given the subcategories of an entity of a fictional Brand. All of these are to further expanded into more subcategories. 
+Your task is to return the number of further subcategories each of these subcategories should be expanded into.
+
+Reason out how much further subcategories each of these subcategories should be expanded into.
+The number of categories should be anywhere from 3 to 6 depending on the relevance of the subcategory to the brand overview and entity description.
+Additionally, output 0 for the subcategories that you think should not be expanded into any further subcategories as these are already detailed and granular enough.
+
+Brand Overview: {brand_description}
+Entity Name: {entity_name}
+Entity Description: {entity_desc}
+Path of the entity from the root:
+{path}
+
+Here are the subcategories along with their descriptions:
+{sub_entities}
+
+Your response should be a json object with the following format:
+{{
+    "reasoning": "Your rigorous reasoning for the allotment containing which subcategories are the most important and which are relatively less and then what should be the corresponding allotment for each. Make sure this reasoning is a paragraph so that it is a valid JSON.",
+    "allotment": {{
+        "subcategory 1 name only": "The number of subcategories to be expanded into",
+        "subcategory 2 name only": "The number of subcategories to be expanded into",
+        ...
+    }}
+}}

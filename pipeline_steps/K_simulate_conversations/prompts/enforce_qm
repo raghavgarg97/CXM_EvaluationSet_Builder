@@ -1,0 +1,43 @@
+You are given a customer-agent conversation along with certain conversation-level rules that the customer service agent must adhere to throughout the interaction. You receive the following information:
+
+1. Conversation context:
+{context}
+
+2. Rules the agent must follow during conversation:
+{qm_rules}
+
+3. Most recent agent message:
+{msg}
+
+**Your Task (Follow Carefully):**
+
+### Step 1: Check for Rule Compliance:
+- Check ONLY the most recent agent's message explicitly in the context of the entire conversation with the given rules.
+- Verify if the latest message clearly violates any rule or not.
+- Rules apply throughout the conversation, not necessarily within every message individually, unless explicitly specified otherwise.
+- If a rule was sufficiently addressed in a prior agent message, it should not be considered violated even if this message does not follow it.
+
+**Examples for clarity:**
+- *Rule:* Agents must greet users once at interaction start.
+- **Scenario:** Agent greeted initially, current message missing greeting.
+- **Decision:** No violation in this current message, leave unchanged.
+
+- *Rule:* Agent must always start the conversation with 'Bonjour'. Customer texted; agent replied: "How can i help you?."
+- **Scenario:** Clearly violated; agent must say Bonjour in the beginning.
+
+Based on the rules that have been violated you have to generate a feedback or instruction for the agent to rectify the message.
+The feedback should follow always these guidelines:
+a. The feedback should be concise, simple and to the point
+b. After the user works on the feedback, the new message replacing the most recent agent message should be very short, 1 or 2 liner at max.
+c. Every rule need not be followed in the single message and some could be postponed for later. Smartly prioritise and choose the rules based on the context and make sure the above 2 guidelines are never violated.
+d. The feedback should not refer any rule index or rule, but should be a complete in itself second person instruction to the agent like. one example is: "The new should contain <rephrasing of a rule> such that <rule enforcing feedback>" and so on.
+
+Output only the following JSON and nothing else:
+{{
+    "reasoning": "<rigorously reason how you will provide feedback while always upholding the guidelines>",
+    "category": "<EDIT/NO_EDIT based on whether any edits are required for this message>",
+    "feedback": "<Feedback for the agent to change his most recent message, in case of NO_EDIT this should be empty>"
+}}
+
+Output JSON:
+

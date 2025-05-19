@@ -1,0 +1,57 @@
+**Task:** Update the agent's notepad based on the ongoing conversation with the customer. The notepad tracks the progress of specific skills needed to resolve the customer's issue.
+
+**Instructions:**
+
+1. **Skill Addition:**
+   - Add a new skill only if explicitly instructed to do so.
+   - For each new skill, carefully determine the necessary requirements. If the customer provides information, fill it in; otherwise, use "PENDING" for unknown values or "NA" if customer does not have that information.
+   - Once requirements are set, they cannot be altered or changed.
+
+2. **Result Generation:**
+   - The result will be "PENDING" if any of the requirements are "PENDING".
+   - Generate a result if all requirements are complete. If requirements are insufficient or customer does not want the results of the skill, mark the result as "SKILL_FAILED".
+   - Ensure results are generated promptly once all requirements are filled.
+   - The result should never contain any further actions or steps for the agent and should contain only the result/outcome for that particular skill [IMPORTANT]
+
+3. **Agent Instructions:**
+   - If any requirements are pending, instruct the agent to request the missing information from the customer one requirement at a time. Do not ask everything at once.
+   - If the result is "SKILL_FAILED", instruct the agent to inform the customer of the inability to proceed due to insufficient data.
+   - If all the requirements are filled, the result should contain the output of the skill (feel free to make up the information), instruct the agent to communicate the skill output to the customer.
+   - Instructions must be in third person and adhere strictly to these guidelines and should mention the skill they correspond to.
+
+**Notepad Format:**
+
+```json
+[
+  {{
+    "name": "<skill name>",
+    "definition": "<skill definition>",
+    "requirements": {{
+      "<requirement_1>": "PENDING/<value>/NA",
+      "<requirement_2>": "PENDING/<value>/NA",
+      ...
+    }},
+    "result": "<result>",
+    "instructions": "<agent instructions>"
+  }},
+  ...
+]
+```
+
+**Current Notepad:**
+```
+{notepad}
+```
+
+**Conversation:**
+```
+{conversation}
+```
+
+**Skills to Add:**
+{additional_instructions}
+
+
+NOTE: It is imperative that the result be generated as soon as all the requirements are filled or are NA. If there are no pending requirements, generate results ASAP [IMPORTANT].
+NOTE: The result should not have any extra step, action or wait for the agent. The final result should be always generated [IMPORTANT] 
+**Output:** Provide only the updated notepad in the specified format.

@@ -1,0 +1,98 @@
+{
+  "Product Range": {
+    "desc": "An all encompassing knowledge pool about all the products of the brand.",
+    "precursor": [],
+    "max_level": 4,
+    "path": [
+      "Product Range"
+    ]
+  },
+  "Services Range": {
+    "desc": "An all encompassing knowledge pool about all the services provided by the brand which may or may not be related to the products.",
+    "precursor": [
+      "Product Range"
+    ],
+    "max_level": 4,
+    "path": [
+      "Services Range"
+    ]
+  },
+  "Contact Information": {
+    "desc": "Ways to get in touch with the brand, including customer service channels.",
+    "precursor": [],
+    "max_level": 1,
+    "path": [
+      "Contact Information"
+    ]
+  },
+  "Brand Story & Milestones": {
+    "desc": "Detailed brand history, growth, and notable achievements.",
+    "precursor": [],
+    "max_level": 1,
+    "path": [
+      "Brand Story & Milestones"
+    ]
+  },
+  "Store or Channel Locations": {
+    "desc": "Information about the brand's physical store locations and official distribution channels.",
+    "precursor": [],
+    "max_level": 2,
+    "path": [
+      "Store or Channel Locations"
+    ]
+  },
+  "Shipping & Delivery Policy": {
+    "desc": "Details on shipping methods, estimated delivery times, and associated costs or restrictions.",
+    "precursor": [
+      "Product Range",
+      "Store or Channel Locations"
+    ],
+    "max_level": 2,
+    "path": [
+      "Shipping & Delivery Policy"
+    ]
+  },
+  "Return & Refund Policy": {
+    "desc": "Guidelines on product returns, refunds, and exchanges, including timelines and conditions.",
+    "precursor": [
+      "Product Range",
+      "Shipping & Delivery Policy"
+    ],
+    "max_level": 2,
+    "path": [
+      "Return & Refund Policy"
+    ]
+  },
+  "Loyalty Programs & Memberships": {
+    "desc": "Information about benefits, enrollment processes, and point/reward redemption.",
+    "precursor": [],
+    "max_level": 2,
+    "path": [
+      "Loyalty Programs & Memberships"
+    ]
+  },
+  "Privacy & Data Protection": {
+    "desc": "An overview of how customer data is collected, stored, and protected, as well as relevant privacy policies.",
+    "precursor": [],
+    "max_level": 2,
+    "path": [
+      "Privacy & Data Protection"
+    ]
+  },
+  "Brand Events & Campaigns": {
+    "desc": "Details about upcoming or past events, promotional campaigns, and brand-sponsored activities.",
+    "precursor": [],
+    "max_level": 2,
+    "path": [
+      "Brand Events & Campaigns"
+    ]
+  },
+  "Legal & Compliance": {
+    "desc": "Terms and conditions, disclaimers, and any regulatory compliance commitments.",
+    "precursor": [],
+    "max_level": 2,
+    "path": [
+      "Legal & Compliance"
+    ]
+  }
+}

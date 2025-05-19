@@ -1,0 +1,18 @@
+Given the conversation history and available knowledge bases, rank the KBs in order of their relevance for generating the next agent response.
+
+Conversation History:
+{conv_history}
+
+Available KB Names:
+{kb_names}
+
+Available KBs:
+{formatted_kbs_str}
+
+Respond with a valid JSON object having two keys:
+{{
+    "reasoning": "<A brief explanation of your ranking decision>",
+    "ordering": [<An array listing the KB names ordered from most re levant to least relevant.>]
+}}
+
+Return only the JSON object without any additional content.

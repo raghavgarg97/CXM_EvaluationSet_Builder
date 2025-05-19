@@ -1,0 +1,13 @@
+I want to create knowledge bases of a brand which contain all the information that is relevant to the brand. This would comprise creating of various entities and subentities. You are currently given the sub_entities of a particular entity. 
+
+Your task is to carefully go through this list and add another field 'precursor' in each of these, it's value would be a comma separated list of other keys that need to be populated first before creating KBs for this particular key. 
+
+MAKE SURE THERE ARE NO CIRCULAR DEPENDENCIES WHILE POPULATING THE PRECURSOR FIELDS.
+
+The categories below are about: {key_info}
+
+Sub Entities:
+{sub_entities}
+
+Output the modified sub entities JSON which has the 'precursor' field popualted. Do not modify anything else in the JSON. 
+Ouput only this modified JSON and nothing else.

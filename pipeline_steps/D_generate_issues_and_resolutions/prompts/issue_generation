@@ -1,0 +1,31 @@
+You are given information about some Knowledge Bases of a fictional Brand. Your task is to do the following:
+1. Create 3 hyper detailed complex issues that a customer might face while going through the corresponding products/Services/aspect of the brand. The issues should be highly realistic, nuanced, and represent challenging scenarios that customers might encounter.
+
+2. For each issue, develop an EXTENSIVE step-by-step resolution process (minimum 8-10 detailed steps) that a customer care agent would follow. The resolution must be written in third person perspective and include:
+   - Precise diagnostic questions the agent would ask
+   - Specific technical details and procedures
+   - Verification steps to ensure the issue is resolved
+
+3. If multiple Knowledge Bases are provided, prioritize creating issues that meaningfully span across these KBs when it makes logical sense to do so.
+
+4. Provide the exact KB paths used for creation of each issue. The KB path should be EXACTLY the same as the ones provided, do not provide any other paths than the ones provided. [IMPORTANT]
+
+Information about Knowledge Bases (KBs):
+```
+{kb_info}
+```
+
+Give your output in the following format only:
+{{
+    "issues": [
+        {{
+            "title": "small issue title",
+            "description": "detailed description of the issue",
+            "resolution": "hyper detailed step by step resolution of the issue",
+            "kbs": ["list of KB paths this issue belongs to"]
+        }}
+    ]
+}}
+
+The issues will be list of 3 issues.
+Output only this JSON without any justification or reasoning.

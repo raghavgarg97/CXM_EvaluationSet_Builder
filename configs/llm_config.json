@@ -1,0 +1,60 @@
+{
+  "server_url": "http://qa6-intuitionx-llm-router-v2.sprinklr.com:80/batch-chat-completion",
+  "batch_size": 20,
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "retry_config": {
+    "max_retries": 5,
+    "max_delay": 120,
+    "initial_delay": 5,
+    "exponential": 2
+  },
+  "base_payload": {
+    "model": "<MODEL_NAME>",
+    "max_tokens": 4000,
+    "provider": "<PROVIDER>",
+    "tracking_params": {
+      "release": "ca_research"
+    },
+    "top_p": 1.0,
+    "client_identifier": "ml-ca-dev"
+  },
+  "models_dict": {
+    "gpt": {
+      "model": "gpt-4o",
+      "provider": "AZURE_OPEN_AI"
+    },
+    "o3-mini": {
+      "model": "o3-mini",
+      "provider": "OPEN_AI"
+    },
+    "gpt-mini": {
+      "model": "gpt-4o-mini",
+      "provider": "OPEN_AI"
+    },
+    "gemini": {
+      "model": "gemini-1.5-pro-002",
+      "provider": "GOOGLE_BARD"
+    },
+    "gemini-flash": {
+      "model": "gemini-2.0-flash-001",
+      "provider": "GOOGLE_BARD"
+    },
+    "claude": {
+      "model": "claude-3-5-sonnet-v2@20241022",
+      "provider": "GOOGLE_BARD",
+      "client_selector_id": "GOOGLE_BARD_ANTHROPIC_ML_ROUTER_CONFIG_US_EAST"
+    },
+    "llama": {
+      "model": "meta/llama3-405b-instruct-maas",
+      "provider": "GOOGLE_BARD",
+      "client_selector_id": "GOOGLE_BARD_LLAMA_CONFIG"
+    },
+    "qwen": {
+      "client_identifier": "ml-ca-dev",
+      "model": "deepseek-qwen-2.5-32B",
+      "provider": "SPRINKLR_AI"
+    }
+  }
+}

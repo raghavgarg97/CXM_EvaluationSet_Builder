@@ -1,0 +1,34 @@
+{
+  "Product Range": {
+    "desc": "An all encompassing knowledge pool about all the products of the brand.",
+    "precursor": [],
+    "max_level": 2,
+    "path": [
+      "Product Range"
+    ]
+  },
+  "Contact Information": {
+    "desc": "Ways to get in touch with the brand, including customer service channels.",
+    "precursor": [],
+    "max_level": 1,
+    "path": [
+      "Contact Information"
+    ]
+  },
+  "Brand Story & Milestones": {
+    "desc": "Detailed brand history, growth, and notable achievements.",
+    "precursor": [],
+    "max_level": 1,
+    "path": [
+      "Brand Story & Milestones"
+    ]
+  },
+  "Store or Channel Locations": {
+    "desc": "Information about the brand's physical store locations and official distribution channels.",
+    "precursor": [],
+    "max_level": 2,
+    "path": [
+      "Store or Channel Locations"
+    ]
+  }
+}

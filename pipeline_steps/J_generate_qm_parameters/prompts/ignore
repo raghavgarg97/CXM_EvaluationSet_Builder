@@ -1,0 +1,33 @@
+You are provided with an existing list of evaluation questions. These questions are used to measure a customer care agent's adherence to the knowledge bases (KBs) provided during their interaction with customers.
+
+Your task is to check if an existing evaluation question already exactly matches or fully encompasses (is a clear superset of) the new evaluation question provided, given the contextual scenario described.
+
+If such a match or superset exists, clearly highlight why this new question can be safely ignored.
+
+Output format (JSON):
+{{
+    "reasoning": "<Clear and concise justification explaining how the existing question already covers or matches identically the new question.>",
+    "existing_question": "<Exact text of the existing matching evaluation question>"
+}}
+
+Currently Existing List of Evaluation Questions:
+```
+{current_questions}
+```
+
+New Evaluation Question:
+```
+{new_question}
+```
+
+For Example:
+If new question: "Given the customer reported slow internet speed repeatedly, did the agent suggest performing an internet speed check?"
+Matches exactly existing question: "Considering the customer  mentions internet issues, did the agent recommend any troubleshooting steps?"
+
+Then output should be:
+{{
+    "reasoning": "The new question precisely matches the intent and scenario of an existing question related to internet issues. No additional evaluation aspect is introduced by the new question.",
+    "existing_question": "Considering the customer  mentions internet issues, did the agent recommend any troubleshooting steps?"
+}}
+
+Only output the JSON described above and nothing else:

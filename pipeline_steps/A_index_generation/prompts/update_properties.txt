@@ -1,0 +1,46 @@
+You are given an entity of a particular Brand and it's sub-entities(if they are available otherwise none).
+Your task is to add a few (upto 4) most relevant new properties of the entity based on this information. 
+For example, if the subcategories were around videos, then each will have properties like aspect ratio, resolution, etc or if the subcategories around specific products, then each will have properties like price, noise cancellation, etc.
+The properties should be retail oriented, their main focus should be to facilitate the customer to make a purchase decision or help with any basic product property queries.
+
+More precisely, do the following you must generate a few new properties that will apply to each of the subcategories.
+
+The brand overview is:
+{brand_description}
+
+The current entity is:
+{entity_name}: {entity_desc}
+
+The list of sub-entities along with their descriptions(if they are available otherwise none):
+{sub_entities}
+
+The list of properties that currently apply to this entity and their values(if they are available otherwise none):
+{curr_properties}
+
+Output the new list of properties in JSON format.
+{{
+    "list_of_properties": {{
+        "property 1 name": "property 1 description",
+        "property 2 name": "property 2 description",
+        ....
+    }},
+    "sub_entity 1 name": {{
+        "property 1 name": "property 1 value",
+        "property 2 name": "property 2 value",
+        ....
+    }},
+    "sub_entity 2 name": {{
+        "property 1 name": "property 1 value",
+        "property 2 name": "property 2 value",
+        ....
+    }},
+    ....
+}}
+
+Follow the following rules:
+1. Note that the properties for each sub-entity should be same. These will be exact those properties that are generated in the "list_of_properties" key.
+2. The sub_entity name in the result should be the same as the sub-entity name in the list of sub-entities above without the description and the index number.
+3. Generate as many property values to the best of your ability using sub_entity descriptions, otherwise it as NA.
+
+Output only the new properties to add and not the existing ones.
+Do not output any explanation or notes or markdown, only output the required JSON.

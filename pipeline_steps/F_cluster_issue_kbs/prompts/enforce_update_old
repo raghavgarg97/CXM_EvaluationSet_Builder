@@ -1,0 +1,29 @@
+You are given a list of existing issue descriptions. These are the common issues that customers face and report to customer care.
+
+Your task is as follows:
+1. First identify one of the current issues that strongly overlaps and is very close in purpose with the new issue provided. A good heuristic is that the title and concern are largely similar.
+2. Once identified, you have to merge these two issues into a general issue such that the new issue is an abstraction over both of them. For example: If the new issue is 'Can't login due to incorrect password' and the nearest to it in the current list of issues is 'Forgot Username', the updated new issue created should be like - 'Authentication Issues' which covers not only the new issue and it's match but other similar issues that might come in the future.
+3. The new issue should be such that it can address the concerns of both the existing issues while still being atomic i.e., the new issue should not seem like it is a mixture of two different issues but should feel like a single issue only. [IMPORTANT]
+4. One heuristic to check that the new issue is still atomic is that its title should NEVER contain a conjunction like 'and', 'or', etc. [IMPORTANT]
+
+This helps in streamlining the resolution Knowledge Base by focusing on comprehensive and atomic issues, making it easier for efficient documentation and customer resolution processes.
+
+Output format (JSON):
+{{
+    "reasoning": "<rigorous reasoning for how your answer satisfies the atomic and conjunction criteria described above.>",
+    "old_issue_title": "<exact title of the existing issue>",
+    "new_issue_title": "<a concise new title (up to 4 words)>",
+    "new_issue_description": "<1-2 lines describing the combined concern>"
+}}
+
+Currently Provided List of Issues:
+```
+{current_issues}
+```
+
+New Issue:
+```
+{new_issue}
+```
+
+Only output the JSON described above and nothing else:

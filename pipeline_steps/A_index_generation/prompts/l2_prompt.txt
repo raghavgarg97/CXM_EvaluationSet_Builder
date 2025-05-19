@@ -1,0 +1,28 @@
+You are given the overview of a fictional Brand. Given that overview you have to generate more information about one particular aspect of the Brand.
+
+Fictional Brand Description:
+{brand_description}
+
+Your task is to generate a few (at most {n_subcategories}) subcategories for {entity_name} ({parent_name}) of the Brand based on typical retail or service groupings. Include any unique or novel categories that might exist in this field.
+
+The definition of {entity_name} is as follows: {entity_desc}.
+{properties_info}
+This entity '{entity_name}' itself is the child of the {parent_name} whose description is: {parent_desc}.
+
+Output the subcategories in the form of a JSON like below:
+
+{{
+    "reasoning": "rigorous reasoning as to what could be the broad and sensible subcategories (at most {n_subcategories}) avoiding all the sibling entities.",
+    "sub_categories": {{
+        "sub category name 1": "sub category description",
+        "sub category name 2": "sub category description",
+        ....
+    }}
+}}
+
+You are also given the list of siblings of this entity. Make sure each sub category generated here belongs to this entity only and not any other sibling entity.
+List of sibling entities:
+{sibling_entities}
+{precursor_info}
+Output only this json without any markdown or explanation.
+Output JSON:

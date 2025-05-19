@@ -1,0 +1,26 @@
+You are given a list of existing issue descriptions. These are the common issues that customers face and report to customer care.
+
+Your task is to create a new general issue that is a superset of the new issue provided while still being atomic.
+This means that the new general issue must be such an abstraction over the provided issue so that it covers other similar issues while still having almost the same context and concern.
+For example: If the current issue is 'Can't login due to incorrect password', the new issue created should be like - 'Authentication Issues' which covers not only the current issue but other similar issues that might come in the future.
+
+This process is essential for building a comprehensive resolution Knowledge Base, which will assist in effectively addressing similar customer concerns.
+
+Output format (JSON):
+{{
+    "reasoning": "<rigorous reasoning as to how the new issue is different from the existing similar issues.>",
+    "new_issue_title": "<suggest a concise title for the general issue>",
+    "new_issue_description": "<1-2 line description>"
+}}
+
+Currently Provided List of Issues:
+```
+{current_issues}
+```
+
+New Issue:
+```
+{new_issue}
+```
+
+Only output the JSON described above and nothing else:

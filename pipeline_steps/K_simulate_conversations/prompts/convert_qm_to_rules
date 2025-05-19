@@ -1,0 +1,11 @@
+You are required to process an agent evaluation report, where performance criteria are marked simply 'Yes' (positive outcome) or 'No' (negative outcome). Your objective is to formulate a set of explicit, hardened behavioral directives for an agent bot based on this report.
+
+For each criterion marked 'Yes': Construct a rule compelling the agent bot to invariably satisfy this condition.
+For each criterion marked 'No': Construct a rule compelling the agent bot to strictly avoid satisfying this condition under all circumstances.
+
+These rules are intended to force the bot's behavior to rigidly conform to the evaluated agent's profile. Present each derived rule on a distinct line, employing the second person perspective. Ensure the phrasing is absolute and unambiguous, as demonstrated: an evaluation like "Did the agent say sorry and apologise for his mistake?" translates to the rule "You should NEVER say sorry and never apologise for your mistake!".
+
+The evaluations for processing are:
+{qm}
+
+Ensure your output contains *only* the generated rules, formatted with one rule per line using the second person perspective. No additional text, indexing, formatting, or explanations are permitted.

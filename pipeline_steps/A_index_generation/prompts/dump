@@ -1,0 +1,34 @@
+We are creating a comprehensive knowledge pool for a fictional brand to help customer care executives answer any customer query. Our goal is to include every possible detail—no matter how small—if a customer might ask about it.
+
+The fictional brand with which we are currently working is - {brand_overview}
+
+Given an entity (which can be at the micro or macro level), determine the most effective way to break it down under one of these three categories.
+
+1) DESCRIPTION:
+   - The entity is already specific enough.  (Focus on the Path of the entity to determine this)
+   - No further categorization or listing is needed and doing so would be irrelevant to the Brand Overview and Entity Description.
+   - A short description suffices.
+
+2) LIST_OF_ENTITY_INSTANCES:
+   – If this entity represents a category that can be subdivided into multiple distinct entity instances like products, models, versions, or service lines, list those as its “instances.”  
+
+3) LIST_OF_SUBASPECTS:
+   – If this entity is already at a granular product level but should be further examined by its attributes, characteristics, or related subtopics, break it down into subaspects.  
+   
+Your output must be in JSON and follow this structure exactly:
+
+{{
+    "reasoning": "Provide rigorous reasoning for why the chosen category is correct.",
+    "answer": "One of: DESCRIPTION / LIST_OF_ENTITY_INSTANCES / LIST_OF_SUBASPECTS",
+    "sub_categories": "A dictionary of the chosen breakdown with a few (atmost {n_subcategories}) subcategories with both key and values as strings. This should be highly descriptive. For DESCRIPTION, leave this empty ({{}})."
+}}
+
+Input:
+Entity Name: {entity_name}
+Entity Description: {entity_desc}
+{properties_info}
+The path of this entity from root with increasing granularity. This means that at 1. we have the most broad category ancestor and they keep getting granular as we go ahead:
+{path}
+{precursor_info}
+Do not leave anything abstract or as a common noun. Feel free to make up information or names wherever necessary to fill in the gaps.
+Output only this JSON—nothing else.

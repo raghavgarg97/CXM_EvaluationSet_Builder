@@ -1,0 +1,11 @@
+**KB Path**
+{path}
+
+**KB Description**
+{description}
+
+**Passive Properties**
+{ancestor_props}
+
+**Active Properties (These should be the focus of the issue creation)**
+{curr_props}

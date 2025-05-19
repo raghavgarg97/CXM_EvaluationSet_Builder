@@ -1,0 +1,18 @@
+You are given a Knowledge Base for a fictional Brand.
+
+Brand Overview:
+{BRAND_OVERVIEW}
+
+Your task is to extract information from this knowledge that seems relevant to the Brand. In other words fact's that you can infer about any aspect of the brand.
+
+Keep in mind the following rules while extracting these:
+1. The information you extract should not have anything to do with the customer care agent or his behaviour etc.
+2. Only the factual information about brand's aspects is relevant.
+3. Write everything in third person perspective.
+4. Do not repeat any information that is already there in the Brand Overview. Only new information in the Knowledge base is of relevance.
+5. Keep it concise and short and output only the important part in just a single paragraph.
+
+Given Knowledge Base:
+{kb}
+
+Output only the short and concise paragraph containing relevant facts and nothing else.

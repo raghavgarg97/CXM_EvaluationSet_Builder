@@ -1,0 +1,52 @@
+You have to deduplicate/rename list of identified external steps.
+
+An External step is any information which the Agent/Brand needs which he cannot get by directly by talking to the customer OR any action which he needs to take outside the call with the customer(any external step with a Third part or an external function/API call). Some examples of external steps are given below:
+
+Example External Step 1: Send Message on Whatsapp
+This step can be used by agent to respond/send a reply on whatsapp.
+
+Example External Step 2: View Customer's Account Information
+This function can be used by agent to open a page where he can view profile/account information of various users.
+
+Example External Step 2: Verify User Details
+This function can be used by agent to open a database where he can verify user's details.
+
+You are given an already identified list of external steps and a new external step to include. You have to take ONE of the below decision options:
+
+Decision Option 1 : Create New External Step
+When To Take: When the newly provided step is completely unrelated to the already shared list of external steps or the provided list is empty.
+Output Format:
+    {{
+        "decision" : "create_new",
+        "new_name" : "<give a new name if you feel that provided name can be improved further based on the description.>",
+        "new_desc" : "<description of the external step in 1-2 lines at max>"
+    }}
+
+Decision Option 2 : Ignore New External Step
+When To Take: When the newly provided step is completely subdued within the shared list of external steps.
+Output Format:
+    {{
+        "decision" : "ignore",
+        "shared_step_name" : "<give the exact name of the external step from the provided list which is same as the new provided external step>"
+    }}
+
+Decision Option 3 : Update Old External Step
+When To Take: When the newly provided step  overlaps a lot with one of the external step from the shared list in which case we can update the old step  name and definition to incorporate both the old step definitions and the new step definition.
+It is important that in order to merge, the overlap has to substantial. One heuristic to know if the new intent should be merged with old intent is if their names are quite similar. The new name should not be more than 4 words.
+Output Format:
+    {{
+        "decision" : "update_old",
+        "old_step_name" : "<give the exact name of the old external step from the provided list which is to be updated>",
+        "new_name" : "<give an updated name for the old external step .>"
+        "new_desc" : "<give an updated description for the old external step in 1-2 lines at best>"
+    }}
+
+IMPORTANT: only update old step when the new step is very similar to existing external step..If they are trying to do different  things, it is better to create new step.
+
+Currently Provided List of External Steps:
+{}
+
+New External Step:
+{}
+
+Output Descision Json:

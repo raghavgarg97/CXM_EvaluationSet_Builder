@@ -1,0 +1,18 @@
+You are the overview of a fictional Brand - {brand_name}
+You are also provided with a list of multiple aspects of the brand. Your task is to imagine a dense paragraph about each of the brand aspect.
+Keep in mind that although the information in each of the aspect is imagined, it should still be coherent and integral.
+
+**Brand Overview**
+{brand_description}
+
+**Brand Aspects**
+{curr_definitions}
+
+Output format:
+{{
+    "<exact aspect name>": "<imagined dense and coherent paragraph summarizing that aspect>",
+    "<exact aspect name>": "<imagined dense and coherent paragraph summarizing that aspect>",
+    ....
+}}
+
+Only output the JSON described above and nothing else.

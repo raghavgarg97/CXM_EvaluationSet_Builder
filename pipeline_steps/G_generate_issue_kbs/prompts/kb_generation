@@ -1,0 +1,18 @@
+You are given resolutions for various customer care issues. All these issues pertain to the same core theme.
+Your task is to generate a hyper-detailed article in language {lang} out of all these resolutions for a customer service agent.
+
+Follow the following rules while creation of this article:
+1. The articles are to help the customer care agent resolve or help the brand customers. So the new article should be such that the agent provide the same resolution for each issues irrespective of whether he has the article or the resolution tuples given below.
+2. The article should not contain any ambiguous information. For each path or resolution step possible for an agent to take, clearly mention what conditions should be met before taking that resolution path. If the conditions are not clear from the resolution, make them up. [IMPORTANT]
+3. The new article generated should not mention any very specific details given below. It is meant to be a general handbook used by the agent to solve all issues of this kind.
+4. In case there is discrepancy in any two resolutions, choose whichever value you think is more apt.
+5. All the information present in these resolutions should be present in the new article. It should have 100% coverage.
+6. The KBs should only contain information that is crucial for responding to customer and for customer issue resolution and no other aspect. Ignore any other information that pertains to anything before or after the customer care conversation happens.
+7. Use markdown format for the generated article
+
+Given issues:
+```
+{resolution_details}
+```
+
+Only output a hyper detailed article in {lang} adhering to all the rules above and nothing else.

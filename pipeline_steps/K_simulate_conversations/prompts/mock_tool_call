@@ -1,0 +1,36 @@
+Given a tool specification, the arguments it was called with, and the conversation context, simulate the tool's likely return.
+
+Tool Specification:
+```
+{tool_spec}
+```
+
+Tool Was Called With These Arguments:
+```
+{tool_args}
+```
+
+Conversation History Context:
+```
+{conversation_history_string}
+```
+
+Instructions:
+
+1.  **Evaluate Sufficiency:** First, critically evaluate the provided arguments in the context of the tool specification and the conversation history. Determine if the arguments, even if not all specified parameters are present, are *sufficient* to realistically simulate a tool call based on the conversation's implied intent and your world knowledge about how such tools function. Consider if mandatory parameters (implied or explicit) are missing.
+2.  **Generate JSON Output:** Structure your response as a JSON object containing the following two keys:
+    * `"sufficient_data"`: Set to `YES` if you determined the arguments are sufficient to proceed with a simulation, `NO` otherwise.
+    * `"mock_tool_result"`:
+        * If `sufficient_data` is `YES`, provide a realistic, simulated response that this tool might return, strictly formatted according to the tool's expected return type (as defined in the specification).
+        * If `sufficient_data` is `NO`, provide a brief string explaining *why* the arguments are insufficient (e.g., "Missing mandatory argument 'location'"). Do *not* generate a simulated tool result in this case.
+
+Output format:
+```json
+{{
+  "reasoning": "<rigorous reasoning for your answer>",
+  "sufficient_data": "<YES\NO>",
+  "mock_tool_result": "<realistic simulated response or reasoning for it's insufficiency based on your reasoning and answer>"
+}}
+```
+
+Output only the JSON in the format mentioned above and nothing else.

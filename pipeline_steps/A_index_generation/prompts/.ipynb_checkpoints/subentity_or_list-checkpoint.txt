@@ -1,0 +1,36 @@
+We are creating a comprehensive knowledge pool for a brand to help customer care executives answer any customer query. Our goal is to include every possible detail—no matter how small—if a customer might ask about it.
+
+The brand with which we are currently working is - {brand_overview} 
+
+
+Given an entity (which can be at the micro or macro level), determine the most effective way to break it down under one of these three categories:
+
+1) DESCRIPTION:
+   - The entity is already specific enough.  (Focus on the Path of the entity to determine this)
+   - No further categorization or listing is needed. (Focus on the Path of the entity to determine this)
+   - A short description suffices.
+   - Examples of this category are very granular entities or overviews or summaries.
+
+2) LIST_OF_ENTITY_INSTANCES:
+   - The entity can be subdivided into distinct versions or models. 
+
+3) LIST_OF_SUBASPECTS:
+   - The entity should be broken down by its major attributes or subtopics. 
+
+Your output must be in JSON and follow this structure exactly:
+
+{{
+    "reasoning": "Provide rigorous reasoning for why the chosen category is correct.",
+    "answer": "One of: DESCRIPTION / LIST_OF_ENTITY_INSTANCES / LIST_OF_SUBASPECTS",
+    "composition": "A dictionary of the chosen breakdown with both key and values as strings. This should be highly descriptive. For DESCRIPTION, leave this empty ({{}})."
+}}
+
+Input:
+Entity Name: {name}
+
+Entity Path from Root: {path}
+
+Information about {name}: {info}
+
+Do not leave anything abstract or as a common noun. Feel free to make up information wherever necessary to fill in the gaps.
+Output only this JSON—nothing else.

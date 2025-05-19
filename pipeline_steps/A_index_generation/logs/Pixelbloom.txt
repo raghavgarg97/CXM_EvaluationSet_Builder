@@ -1,0 +1,105 @@
+Time elapsed: 0.00s for path: Product Range->PC Games
+Time elapsed: 0.00s for path: Product Range->Console Games
+Time elapsed: 0.00s for path: Product Range->Mobile Games
+Time elapsed: 0.00s for path: Product Range->Puzzle-Adventure Games
+Time elapsed: 0.00s for path: Product Range->Narrative-Driven Games
+Time elapsed: 0.01s for path: Product Range->Open-World Exploration Games
+Time elapsed: 0.01s for path: Product Range->Runner Games
+Time elapsed: 0.01s for path: Product Range->Game Soundtracks
+Time elapsed: 0.01s for path: Product Range->Art Books & Merchandise
+Time elapsed: 0.01s for path: Product Range->Game Bundles & Special Editions
+Time elapsed: 0.01s for path: Contact Information->General Inquiries
+Time elapsed: 0.01s for path: Contact Information->Customer Support
+Time elapsed: 0.01s for path: Contact Information->Press & Media Relations
+Time elapsed: 0.01s for path: Contact Information->Business Development
+Time elapsed: 0.01s for path: Contact Information->Community Engagement
+Time elapsed: 0.01s for path: Contact Information->Careers
+Time elapsed: 0.01s for path: Contact Information->Newsletter Subscriptions
+Time elapsed: 0.01s for path: Contact Information->Legal & Privacy
+Time elapsed: 0.01s for path: Brand Story & Milestones->Founding & Early Vision
+Time elapsed: 0.01s for path: Brand Story & Milestones->Debut Title Success
+Time elapsed: 0.01s for path: Brand Story & Milestones->Growth & Expansion
+Time elapsed: 0.01s for path: Brand Story & Milestones->Key Game Releases
+Time elapsed: 0.01s for path: Brand Story & Milestones->Awards & Recognition
+Time elapsed: 0.01s for path: Brand Story & Milestones->Community Engagement
+Time elapsed: 0.01s for path: Brand Story & Milestones->Technological & Creative Innovation
+Time elapsed: 0.01s for path: Brand Story & Milestones->Collaborations & Partnerships
+Time elapsed: 0.01s for path: Store or Channel Locations->Digital Distribution Platforms
+Time elapsed: 0.01s for path: Store or Channel Locations->Physical Retail Partnerships
+Time elapsed: 0.01s for path: Store or Channel Locations->Official Website Store
+Time elapsed: 0.01s for path: Store or Channel Locations->Global Distribution Networks
+Time elapsed: 0.01s for path: Store or Channel Locations->Specialty & Collector's Edition Outlets
+Time elapsed: 0.01s for path: Store or Channel Locations->Pop-Up Shops & Events
+Time elapsed: 0.01s for path: Store or Channel Locations->Subscription Services
+Time elapsed: 0.01s for path: Store or Channel Locations->Mobile App Stores
+Time elapsed: 0.02s for path: Product Range->PC Games->Artistically Driven Adventures
+Time elapsed: 0.02s for path: Product Range->PC Games->Narrative Explorations
+Time elapsed: 0.02s for path: Product Range->PC Games->Relaxing & Atmospheric Games
+Time elapsed: 0.02s for path: Product Range->PC Games->Challenging Puzzles & Brain Teasers
+Time elapsed: 0.02s for path: Product Range->PC Games->Community Creations & Mods
+Time elapsed: 0.02s for path: Product Range->Console Games->Story-Driven Adventures
+Time elapsed: 0.02s for path: Product Range->Console Games->Exploration & Discovery
+Time elapsed: 0.02s for path: Product Range->Console Games->Puzzle & Challenge
+Time elapsed: 0.02s for path: Product Range->Console Games->Console Exclusive Editions
+Time elapsed: 0.02s for path: Product Range->Console Games->Co-op & Multiplayer Experiences
+Time elapsed: 0.02s for path: Product Range->Mobile Games->Pixelbloom Pocket Adventures
+Time elapsed: 0.02s for path: Product Range->Mobile Games->Bloom Burst Arcade
+Time elapsed: 0.02s for path: Product Range->Mobile Games->Heartfelt Mobile Stories
+Time elapsed: 0.02s for path: Product Range->Mobile Games->Zen Garden Games
+Time elapsed: 0.02s for path: Product Range->Mobile Games->Pixelbloom GO
+Time elapsed: 0.02s for path: Product Range->Puzzle-Adventure Games->Narrative Focus
+Time elapsed: 0.02s for path: Product Range->Puzzle-Adventure Games->Puzzle Complexity
+Time elapsed: 0.02s for path: Product Range->Puzzle-Adventure Games->Setting & Theme
+Time elapsed: 0.02s for path: Product Range->Puzzle-Adventure Games->Cooperative Play
+Time elapsed: 0.02s for path: Product Range->Narrative-Driven Games->Emotional Journeys
+Time elapsed: 0.02s for path: Product Range->Narrative-Driven Games->Character-Driven Stories
+Time elapsed: 0.02s for path: Product Range->Narrative-Driven Games->Interactive Fiction
+Time elapsed: 0.02s for path: Product Range->Narrative-Driven Games->Mystery & Intrigue
+Time elapsed: 0.02s for path: Product Range->Open-World Exploration Games->Narrative-Driven Exploration
+Time elapsed: 0.02s for path: Product Range->Open-World Exploration Games->Environmental Storytelling
+Time elapsed: 0.02s for path: Product Range->Open-World Exploration Games->Collect-a-thon Adventures
+Time elapsed: 0.02s for path: Product Range->Open-World Exploration Games->Zen Exploration
+Time elapsed: 0.02s for path: Product Range->Runner Games->Visually Themed Runners
+Time elapsed: 0.03s for path: Product Range->Runner Games->Narrative Runners
+Time elapsed: 0.03s for path: Product Range->Runner Games->Community Challenge Runners
+Time elapsed: 0.03s for path: Product Range->Game Soundtracks->By Game
+Time elapsed: 0.03s for path: Product Range->Game Soundtracks->Mood & Style
+Time elapsed: 0.03s for path: Product Range->Game Soundtracks->Arrangements & Versions
+Time elapsed: 0.03s for path: Product Range->Art Books & Merchandise->Art Books
+Time elapsed: 0.03s for path: Product Range->Art Books & Merchandise->Apparel & Accessories
+Time elapsed: 0.03s for path: Product Range->Art Books & Merchandise->Collectibles
+Time elapsed: 0.04s for path: Store or Channel Locations->Digital Distribution Platforms->Steam
+Time elapsed: 0.04s for path: Store or Channel Locations->Digital Distribution Platforms->PlayStation Store
+Time elapsed: 0.04s for path: Store or Channel Locations->Digital Distribution Platforms->Xbox Live
+Time elapsed: 0.04s for path: Store or Channel Locations->Digital Distribution Platforms->Nintendo eShop
+Time elapsed: 0.04s for path: Store or Channel Locations->Digital Distribution Platforms->Pixelbloom Website (Digital Downloads)
+Time elapsed: 0.04s for path: Store or Channel Locations->Digital Distribution Platforms->GOG.com
+Time elapsed: 0.04s for path: Store or Channel Locations->Physical Retail Partnerships->GameStop
+Time elapsed: 0.04s for path: Store or Channel Locations->Physical Retail Partnerships->EB Games Australia
+Time elapsed: 0.04s for path: Store or Channel Locations->Physical Retail Partnerships->Best Buy
+Time elapsed: 0.05s for path: Store or Channel Locations->Physical Retail Partnerships->Target
+Time elapsed: 0.05s for path: Store or Channel Locations->Physical Retail Partnerships->FNAC France
+Time elapsed: 0.05s for path: Store or Channel Locations->Official Website Store->Product Categories
+Time elapsed: 0.05s for path: Store or Channel Locations->Official Website Store->Digital Rights Management (DRM)
+Time elapsed: 0.05s for path: Store or Channel Locations->Official Website Store->Regional Availability
+Time elapsed: 0.05s for path: Store or Channel Locations->Official Website Store->Exclusive Content
+Time elapsed: 0.05s for path: Store or Channel Locations->Global Distribution Networks->North American Distributor
+Time elapsed: 0.05s for path: Store or Channel Locations->Global Distribution Networks->European Distributor
+Time elapsed: 0.05s for path: Store or Channel Locations->Global Distribution Networks->Asian Distributor
+Time elapsed: 0.05s for path: Store or Channel Locations->Global Distribution Networks->Latin American Distributor
+Time elapsed: 0.05s for path: Store or Channel Locations->Specialty & Collector's Edition Outlets->Exclusive Content
+Time elapsed: 0.05s for path: Store or Channel Locations->Specialty & Collector's Edition Outlets->Regional Availability
+Time elapsed: 0.05s for path: Store or Channel Locations->Specialty & Collector's Edition Outlets->Outlet Type
+Time elapsed: 0.05s for path: Store or Channel Locations->Pop-Up Shops & Events->Location_and_Timing
+Time elapsed: 0.05s for path: Store or Channel Locations->Pop-Up Shops & Events->Exclusive_Offerings
+Time elapsed: 0.05s for path: Store or Channel Locations->Pop-Up Shops & Events->Product_Availability
+Time elapsed: 0.05s for path: Store or Channel Locations->Subscription Services->Xbox Game Pass
+Time elapsed: 0.05s for path: Store or Channel Locations->Subscription Services->PlayStation Plus
+Time elapsed: 0.05s for path: Store or Channel Locations->Subscription Services->Pixelbloom Plus
+Time elapsed: 0.05s for path: Store or Channel Locations->Subscription Services->Nintendo Switch Online Expansion Pack
+Time elapsed: 0.05s for path: Store or Channel Locations->Mobile App Stores->Apple App Store
+Time elapsed: 0.05s for path: Store or Channel Locations->Mobile App Stores->Google Play Store
+Time elapsed: 0.05s for path: Store or Channel Locations->Mobile App Stores->Digital Rights Management (DRM)
+Time elapsed: 0.05s for path: Store or Channel Locations->Mobile App Stores->Regional Availability
+Time elapsed: 0.05s for path: Store or Channel Locations->Mobile App Stores->Exclusive Content
+Time elapsed: 0.05s for path: Store or Channel Locations->Mobile App Stores->Supported Platforms

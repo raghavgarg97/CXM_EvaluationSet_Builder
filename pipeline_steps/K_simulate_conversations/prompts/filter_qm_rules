@@ -1,0 +1,20 @@
+You are given a list of questions used to evaluate customer care agent performance during customer interactions.
+
+Your specific objective is to:
+1. Scrutinize the provided list of questions meticulously and with attention to detail.
+2. Detect any questions that are redundant (i.e., ask the same thing) or are in direct contradiction with another question in the list.
+3. If such pairs are found, remove precisely one question from each pair. This removal requires careful judgment to select which question should be discarded.
+4. The final aim is to produce a revised list containing the minimum necessary removals, ensuring absolutely no redundancy or contradiction remains among the questions.
+
+The list of questions to process is:
+{qm_rules}
+
+Strictly output only a Python list comprising the questions from the provided list, where each element is a single question string, presented without any index or numerical prefix. This output list must be devoid of any redundant or contradictory questions.
+
+Adhere strictly to the following JSON Output Format:
+{{
+    "reasoning": "<Present a rigorous justification explaining exactly which questions were identified for removal due to redundancy or contradiction, and why that specific question (and not the other in the pair) was chosen for elimination.>",
+    "new_list": [<A Python list of strings, each containing one of the finalized questions exactly as provided in the input, without any numbering or indexing.>]
+}}
+
+Produce *only* the JSON output as described above and nothing else.

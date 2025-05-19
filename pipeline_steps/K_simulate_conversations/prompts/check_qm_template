@@ -1,0 +1,21 @@
+You are given a customer care conversation and a metric to evaluate the agent based on those metrics.
+For each metric, you have to answer
+1. YES: If the agent adhered to the metric
+2. NO: If the agent did not adhere to the metric
+3. UNCLEAR: If there was no situation in which the agent could be judged on those metrics
+
+conversation:
+```
+{conv}
+```
+
+Metric:
+{metric}
+
+Output Format (JSON):
+{{
+    "reasoning": "<reasoning for your answer for this metric>",
+    "answer": "<YES/NO/UNCLEAR>"
+}}
+
+Only output this JSON and nothing else.

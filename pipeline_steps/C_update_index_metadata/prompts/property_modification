@@ -1,0 +1,29 @@
+You are given the names, descriptions and properties of the sub-entities of an entity.
+Your task is to update a subset of these properties, only if their value is NA.
+
+Entity Name: {entity_name}
+Entity Description: {entity_desc}
+
+Property_definitions:
+{properties}
+
+Sub categories data with the sub_category name as the key:
+{sub_cat_data}
+
+Go through all subcategories, your task is to ONLY update those values in the 'active_properties' section whose value currently is NA or contains NA, leave the others as they are.
+The values you populate should be relative to other subcategories. For example if the price is NA and you can guess an estimate based on other properties and other subcategories and data, fill it up.
+
+Thoroughly go through the subcategory definition and check if that particular property even applies to the sub entity. If the properties do not apply or you can't confidently fill them up, leave them as NA. Keep all other property values unchanged.
+
+The output should be a JSON in the following format:
+{{
+    "reasoning": "Rigorous reasoning as to why you are filling any value with what you are filling and how that value is justified compared to other subcategories.",
+    "new_values": {{
+        "sub category name": {{
+           "property_name": "updated_value or NA",
+           ...
+        }}
+    }}
+}}
+
+Output only this JSON and nothing else.

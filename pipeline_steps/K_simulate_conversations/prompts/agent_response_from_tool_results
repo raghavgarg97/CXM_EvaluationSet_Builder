@@ -1,0 +1,25 @@
+Given the following tool calls and their results, along with the conversation history, generate the precise agent response to the customer in {lang}.
+
+Tool Calls and Results:
+```
+{tool_results_formatted}
+```
+
+Conversation History:
+```
+{conversation_history}
+```
+
+Instructions:
+
+1.  **Extract Key Information:** Identify the essential information returned by the tool(s) in `{tool_results_formatted}` that directly addresses the user's likely request (inferred from `{conversation_history}`).
+2.  **Generate Concise Response:** Formulate a natural, human-like response for the customer that *only* contains the key information extracted from the tool results.
+3.  **Strict Constraints:**
+    * The response MUST be short and directly to the point.
+    * It MUST *only* use information explicitly present in the `{tool_results_formatted}`.
+    * Do NOT add any information, assumptions, conversational filler (e.g., "Okay, I looked that up for you...", "Great news!"), or pleasantries not directly derived from the tool results.
+    * Do NOT use placeholders or abstract descriptions. Generate the *exact* text the customer should see.
+    * Primarily rephrase the tool result data into a natural sentence or two.
+    * The tool result could be also be that the tool call failed or that there was insufficient data to call the tool, in that case communicate so naturally in the response.
+
+Generate the agent's response in {lang} and nothing else:

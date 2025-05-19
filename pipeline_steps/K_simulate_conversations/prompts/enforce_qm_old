@@ -1,0 +1,67 @@
+You are given a customer-agent conversation along with certain conversation-level rules the customer service agent must adhere to throughout the entire interaction. These are as follows:
+
+1. Conversation context:
+{context}
+
+2. Rules for the agent to follow during the conversation:
+{qm_rules}
+
+3. Most recent agent message:
+{msg}
+
+
+**Your Task:**
+
+Review ONLY the most recent agent message in the context of the entire conversation and provided rules. Do the following carefully:
+
+### Step 1: Check Rule Compliance:
+- Verify if the agent's latest message complies with all specified conversation rules.
+- The rules apply **throughout the conversation**, not necessarily in every message individually (unless explicitly mentioned otherwise).
+- If an earlier message already satisfied a given rule sufficiently, do NOT enforce it again.
+
+**Example:**
+- *Rule:* Agents must always greet the customer at the start of interaction.
+  → **Valid:** Agent greeted in first message; ignore for later messages.
+
+### Step 2: Message Adjustment:
+- If agent's latest message **fully complies** with all applicable rules at this conversation stage, return it unchanged.
+- If a message is non-compliant or fails to fulfill any necessary rule relevant to this stage, carefully **amend the message** while ensuring:
+    - No loss in specific information (retain all unique details, product names, order info, issue specifics).
+    - Make minimal but clear adjustments, ensuring natural conversation flow; don't heavily overload the message.
+    - If immediate rule satisfaction is impossible due to lack of information, (e.g., two products must be suggested but only one available), explicitly instruct the agent to satisfy this rule in the subsequent message. It is imperative that you do not make up information and rather just change the message such that the agent has to fetch the required information at that very instant.
+    - Do not make up any information in any case no matter how small. Only mildly edit the message to follow the rules and if some information is needed, force the agent to fetch that in his successive messages.
+
+**Example (Adjustment Required):**
+- *Rule:* Agent must suggest at least two products in conversation. Customer asked for shampoo recommendation. Agent replied: "I recommend ABC shampoo." (Only one suggestion and no information about the second)
+    - **Adjusted reply:** "I recommend ABC shampoo. Another good alternative is" or "I recommend ABC shampoo. I can also tell another alternative if you are interested?" or "I recommend ABC shampoo. I am looking up another alternative too, will let you know in a jiffy."
+    - All these messages force the agent to fetch information before it's next reply hence forcing it to follow rules as well as not making up information.
+
+**Example (No Adjustment Needed):**
+- *Rule:* Agent must verify the email of the user. Agent previously asked: "Can you please verify your email?" early in the conversation. Latest message doesn't mention email verification.
+    - **Decision:** No adjustment needed; already satisfied earlier as the email has already been verified.
+
+**Example (No Overloading).**
+- *Rules:* Agent must crack jokes while talking; Agent must greet the customer with 'Bonjour'; Agent must ask the agent how his day is going; Agent must ask for the customer's name.
+    - Agent Replied: Hey! How can i help you?
+    - **Adjusted Reply:** "Bonjour! How is your day going?"
+    - Despite the rules, the agent did not overload the message and used only some of them and will smartly use the other later in the conversation. Smartly choose those rules such that the agent's message is not overloaded.
+
+
+### Response JSON [strictly follow this format]:
+{{
+    "reasoning": "<Brief reasoning going over every rule and deciding if it is relevant any more or not and then deciding whether to leave the message unaltered or alter it>",
+    "new_message": "<Either the original (unchanged) agent message or your adjusted compliant message>",
+    "rules_violated": "<tell the definition of the rules which were violated by the previous message and how the new message managed to fix them. In case of no changes, leave this empty.>"
+}}
+
+**Important Notes for Compliance:**
+- Do NOT force customer-dependent compliance. If a customer ignores a question, don't repeatedly ask. For example if there is a rule about asking the customer his pronouns at the starting of the conversation and you asked once but the customer did not reply, then do not ask again!
+- Rules aim for coherence and natural conversation flow; apply reasonable judgment regarding timing and necessity.
+- Maintain brevity and clarity in explanation; your reasoning should succinctly capture just essential justification for action.
+- Never overload the message, delay or postpone one of the rules and apply it in a later message rather than overloading the text.
+- Keep the altered message as short and to the point as possible.
+- Never make up any amount of information no matter how small.
+
+
+Output only the JSON in the format described above and nothing else!
+

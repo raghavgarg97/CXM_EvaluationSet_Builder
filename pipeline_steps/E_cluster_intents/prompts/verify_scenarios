@@ -1,0 +1,54 @@
+You are given a list of existing parent issues. These are basically categories of common issues that customers face and report to customer care.
+There are three possible scenarios for integrating a new issue into the existing list of parent categories:
+
+1. IGNORE:
+    a. Appropriate ONLY if the new issue is almost identical or precisely represents a subset fully covered by an existing issue category.
+    b. This means that one of the existing parent category is already identical to or a superset of the new issue.
+
+2. UPDATE_EXISTING:
+    a. Appropriate ONLY if there is a significant overlap between the new issue and an existing category, allowing a clean and logical merging into a concise, atomic issue category maintaining simplicity.
+    b. The new issue should not feel very complex with lots of concerns or a very huge list of problems. One heuristic to check that the new issue is still atomic is that its title should not contain a conjunction like 'and', 'or', etc.
+
+3. CREATE_NEW:
+    a. Appropriate ONLY if the new issue introduces a distinctly new problem or customer concern not sufficiently covered by existing categories.
+
+Your task is evaluating provided scenario outputs (IGNORE, UPDATE_EXISTING, and CREATE_NEW) and carefully selecting the optimal scenario according to the following criteria:
+a. Atomicity: Each category must distinctly focus on one clear issue or concern without overlapping multiple directions.
+b. Simplicity: Categories should be straightforward, clear, concise, and avoid complexity caused by multiple issues.
+c. Saturation: Over time, CREATE_NEW and UPDATE_EXISTING scenarios should become rare, and IGNORE should become common, as most new issues will already be covered by achieved broad and clear parent categories.
+
+New issue information:
+```
+{new_issue}
+```
+
+Outputs from Scenario 1. IGNORE:
+```
+{ignore_output}
+```
+
+Outputs from Scenario 2. UPDATE_EXISTING:
+```
+{update_output}
+```
+
+Outputs from Scenario 3. CREATE_NEW:
+```
+{create_new_output}
+```
+
+Output format (JSON):
+{{
+    "reasoning": "<First reason if the outputs corresponding to all three scenarios appropriately align with their criteria, then rigorously reason which scenario achieves the best balance of atomicity, simplicity, and saturation principles described above.>",
+    "decision": "<IGNORE / UPDATE_EXISTING / CREATE_NEW>"
+}}
+
+Example:
+New issue: "User unable to see recent transactions."
+• IGNORE might state: "This fully falls under 'Payment Issues' as transaction details are included."
+• UPDATE_EXISTING might propose: "Rename 'Payment Issues' to 'Payment and Transaction Issues,' explicitly adding transaction records."
+• CREATE_NEW might suggest: "Transaction Record Issues" as a new separate category.
+
+If "Payment Issues" already adequately covers transactions, IGNORE may be preferred to avoid unnecessary expansion.
+
+Only output the JSON described above and nothing else:

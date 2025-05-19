@@ -1,0 +1,6 @@
+You are given the sub-entities and some attributes of an entity. On the basis of these sub-entities, you have to come up with a crisp, concise and all-encompassing description. 
+
+Sub-entities:
+{sub_entities}
+
+Do not output any explanation or notes or markdown. Output only the concise description and nothing else.

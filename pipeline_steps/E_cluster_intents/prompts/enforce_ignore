@@ -1,0 +1,31 @@
+You are given a list of existing parent issues. These are the basically categories of common issues that customers face and report to customer care.
+
+Your task is to check which of the existing issues is exactly the same or a superset of the new issue.
+Basically, we want an existing issue that already encompasses the query or concern of the new issue.
+Keep in mind that the new issue must match exactly (or effectively be a subset of) an existing issue.
+
+Output format (JSON):
+{{
+    "reasoning": "<rigorous reasoning as to why this new issue is a subset of one of the existing issues.>",
+    "existing_parent_title": "<exact title of the existing issue from the provided list>"
+}}
+
+Currently Provided List of Parent Categories:```
+{current_issues}
+```
+
+New Issue:
+```
+{new_issue}
+```
+
+For Example:
+If the new issue is: "Customer unable to add credit card on file"
+And an existing parent category is: "Payment Issues" covering all card addition or removal problems,
+Then the output can be:
+{{
+    "reasoning": "The new issue is fully covered by the broader Payment Issues category. No additional concerns are introduced.",
+    "existing_parent_title": "Payment Issues"
+}}
+
+Only output the JSON described above and nothing else:

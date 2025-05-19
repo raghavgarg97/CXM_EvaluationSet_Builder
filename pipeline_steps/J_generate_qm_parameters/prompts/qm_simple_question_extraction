@@ -1,0 +1,28 @@
+You are provided with a knowledge base (KB) containing necessary information and instructions an agent must follow to properly resolve a given customer care issue. Your task is to extract evaluation questions from this KB. These questions will later be used to gauge whether the customer care agent effectively used the knowledge provided to handle the customer's issue.
+
+While extracting questions from the given knowledge base, strictly follow these guidelines:
+
+1. Each question must be framed to evaluate the agent’s performance based entirely on actions clearly outlined or inferred explicitly from the provided KB information.
+2. Each question must always be binary, containing only two possible answers: 'Yes' or 'No'.
+3. Frame each question in such a manner that answering 'Yes' indicates good performance or compliance with the KB, while 'No' indicates failure or deviation from the KB guidance.
+4. Each question must contain a concise yet clear contextual reference to the scenario or condition from the KB—such as "Given that the customer was having connectivity issues, did the agent...?" or "When the customer ignored the initial request, did the agent...?".
+5. Be sure the questions sufficiently and comprehensively cover:
+   - Technical judgment (did the agent follow technical steps or procedures correctly as indicated in KB?)
+   - Communication skill jxudgment (did the agent demonstrate appropriate communication skill/etiquette prescribed by the KB?)
+6. Ensure some questions explicitly reference significant contextual triggers or situations from the provided KB to give clarity when evaluating agent adherence to context-relevant instructions, for example:
+   - "When the customer initially hesitated to provide details, did the agent politely reiterate why the details were necessary?"
+   - "Given the fact that the customer mentioned slow internet speed repeatedly, did the agent correctly suggest performing an internet-speed test directly?"
+   - These contexts could be even further nested if possible like If <A> and then <B> happened, did the agent do <C>.
+7. Maintain clarity and conciseness, limiting your total list to the most essential 8-10 questions that effectively judge both technical and communication aspects.
+8. Only give questions that are relevant to the customer care conversation and not the ones post or pre conversation
+9. The question in itself should never contain the term 'KB' or any reference to the knowledge, it should contain all the information in itself and it should be complete and independent in itself.
+
+The knowledge base (KB) provided belongs to the following intent:
+{intent_def}
+
+Knowledge Base (KB) provided to agent:
+```
+{KB}
+```
+
+Only markdown-formatted numbered list of questions are required as output. Provide no explanations, headers, or extra wording other than the individual evaluation questions clearly formatted one per line.

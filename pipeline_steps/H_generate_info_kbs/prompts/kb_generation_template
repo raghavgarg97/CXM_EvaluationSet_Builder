@@ -1,0 +1,37 @@
+You are given an aspect/entity of a fictional Brand. Your task is to create a knowledge Base in language {lang} for this entity on the basis of information provided below.
+
+You will be given the following:
+1. Brand Overview
+2. Name and description of this entity
+3. Path of the entity - This briefly tells about the parent entities of this entity and what they comprise of
+4. Properties of ancestors - The properties of ancestors of this entity which should be touched upon in the knowledge base but should not be the main focus. Only use what is necessary from them to improve the quality of the current Knowledge base. 
+5. Properties of this entity - The properties of this entity which should be the main focus of the Knowledge base
+6. Brief Summaries of the sub categories of this entity - These contain summaries of the Knowledge bases of the sub categories of this entity. Try to accomodate any common or recurring phenomena in them in the current knowledge base to improve on it's quality.
+7. Brief Summaries of the relevant siblings of this entity - These contain the brief summaries of Knowledge Bases some of the siblings of this entity that contain some important information that would be useful for the creation of the this Knowledge base. Keep in mind that you do not have to repeat the information from the Knowledge bases but use it as a seed to generate better Knowledge base for our current entity.
+
+Brand Overview:
+{brand_overview}
+
+Entity Name: {entity_name}
+Entity Description: {entity_desc}
+
+Path of the entity:
+{path}
+
+Properties of ancestors: 
+{ancestor_properties}
+
+Properties of this entity:
+{properties}
+
+Brief Summaries of the sub categories of this entity:
+{sub_categories_summary}
+
+Brief Summaries of the relevant siblings of this entity:
+{precursor_summary}
+
+
+Make the Knowledge Bases structured, easy to read and comprehensive. Do not mention properties or entity or path there. These are only metadata.
+Feel free to add up more information in the KB but it should be strongly based on the seeds and cues provided. If you think any important part is missing and you can fill the gap using general knowledge or inferred from the information provided above, do so.
+In case of any discrepancy, the brief summaries of sub categories and relevant siblings should be considered as the source of truths. [IMPORTANT]
+Only output a KB in {lang} based on this information. Output this and nothing else.

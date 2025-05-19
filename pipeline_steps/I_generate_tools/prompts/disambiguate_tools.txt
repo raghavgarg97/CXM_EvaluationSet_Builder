@@ -1,0 +1,62 @@
+You have to disambiguate a list of identified tools so that no two tools serve the same function or whose outputs overlap substantially, and break up any that are too complex into separate actions. Each tool must perform a distinct action and there should never be two tools that could be called interchangeably for the same task.
+
+A Tool is any external function or API call the Agent/Brand needs to invoke outside the conversation with the customer (for example, any action involving a third party or external system).
+
+Some examples of tools:
+
+Example Tool 1: Send Message on Whatsapp
+This tool lets the agent send a reply via WhatsApp.
+
+Example Tool 2: View Customer Account
+This tool lets the agent open a page to view a customer’s profile/account information.
+
+Example Tool 3: Verify User Details
+This tool lets the agent check a database to verify a user’s identity.
+
+You are given an existing list of tools and a new tool to consider. If the new tool description contains multiple distinct actions (for example “Fetch X and Y”), split it into separate candidate tools X and Y, and evaluate each independently.
+A simple heuristic to identify if the tool needs to broken up into distinct tools is to check if the name of the tool contains any conjunction. If not and the tool is already serving only a single core purpose, do not break it! Break tools rarely and only when it seems like two high level tools are being merged.
+When breaking a tool, always break it into minimum number of tools keeping in mind the utility for the agent. If there is any part of the tool that does not seem relevant or is too abstract, feel free to ignore it.
+Then choose one of these decisions for each:
+
+Decision Option 1: Create New Tool
+When to take: The candidate tool’s function is wholly unrelated to any in the current list (or the list is empty).
+Decision object format:
+{{
+  "decision": "create_new",
+  "new_name": "<name of the new tool>",
+  "new_desc": "<1–2-line description>"
+}}
+
+Decision Option 2: Ignore Duplicate Tool
+When to take: The candidate tool is entirely subsumed by (i.e. duplicates) one already in the list.
+Decision object format:
+{{
+  "decision": "ignore",
+  "existing_tool": "<exact name of the tool it duplicates>"
+}}
+
+Decision Option 3: Update Existing Tool
+When to take: The candidate tool overlaps substantially with an existing one, and you can merge them into a single tool without losing clarity. The merged name should be no more than four words and should not contain conjunction.
+Decision object format:
+{{
+  "decision": "update_existing",
+  "existing_tool": "<exact name of the old tool to update>",
+  "new_name": "<updated tool name>",
+  "new_desc": "<1–2-line merged description>"
+}}
+
+IMPORTANT: Only update when the functions are extremely similar. If the core actions differ, create a new tool instead.
+
+Examples of overlaps vs non-overlaps:
+*Examples*: “Retrieve customer profile” overlaps with “Fetch customer details.”
+*Non-Examples*: “Check balance” vs. “Check transactions” (different scope), “Update address” vs. “Verify address” (different core action)
+
+Output a JSON array of decision objects—one per candidate tool action.
+
+Currently Provided List of Tools:
+{}
+
+New Tool to Consider:
+{}
+
+IMPORTANT: All these tools are there to aid the customer care agent in helping the customer during a conversation. Hence there should be no tool like - "Guide the customer" or "Resolve the query" etc. as these make no sense as complementary tools for the agent. Simply ignore these tool or parts of tools that are like this by generating no output corresponding to them or those parts. For eg: If the tool was 'fetch <A> and guide customer', only create a new tool for fetch <A>.

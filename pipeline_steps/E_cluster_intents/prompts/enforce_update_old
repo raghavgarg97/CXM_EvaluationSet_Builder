@@ -1,0 +1,37 @@
+You are given a list of existing parent issues. These are the basically categories of common issues that customers face and report to customer care.
+
+Your task is as follows:
+1. First identify one of the current parent categories that strongly overlaps and is very close in type of concern with the new issue provided. A significant overlap is what we are looking for.
+2. Once identified, you have to update the parent category so as it better represents both the issues it currently entails and the new issue as well. This might include making the definition less granular or appending something or any other change. DO so wisely.
+3. The new parent category should be such that it can aligns the concerns of both the existing issues and the new one while still being atomic i.e., the new issue should not seem like it is a mixture of two different issue categories but should feel like a single issue category only. [IMPORTANT]
+4. One heuristic to check that the new issue category is still atomic is that its title should not contain a conjunction like 'and', 'or', etc. [IMPORTANT]
+
+Output format (JSON):
+{{
+    "reasoning": "<rigorous reasoning for how your answer satisfies the atomic and conjunction criteria described above for the new issue category.>",
+    "old_parent_title": "<exact title of the existing parent category>",
+    "new_parent_title": "<a concise new title (up to 4 words)>",
+    "new_parent_description": "<1-2 lines describing the newly formed parent category>"
+}}
+
+Currently Provided List of Parent Categories:
+```
+{current_issues}
+```
+
+New Issue:
+```
+{new_issue}
+```
+
+For Example:
+Old parent category: "Forgot Credentials" (covering issues related to user forget login username or password)
+New issue: "User's password has expired and the user needs to update it before logging in."
+We can update to:
+{{
+    "reasoning": "The new category focuses solely on login-related issues, maintaining atomicity by addressing all authentication problems. The title 'Login Issues' is concise without conjunctions while covering both forgotten credentials and expired passwords.",
+    "old_parent_title": "Forgot Credentials", 
+    "new_parent_title": "Login Issues",
+    "new_parent_description": "All issues preventing successful login including forgotten credentials, expired passwords and authentication problems."
+}}
+Only output the JSON described above and nothing else:

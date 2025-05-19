@@ -119,7 +119,7 @@ async def process_new_issue(
         if len(existing_issues) == 0:
             decision = 'CREATE_NEW'
 
-        print("Decision is:", decision)
+        # print("Decision is:", decision)
 
         steps_taken.append(decision)
 

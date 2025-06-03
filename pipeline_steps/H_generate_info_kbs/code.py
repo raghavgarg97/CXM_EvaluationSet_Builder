@@ -93,12 +93,26 @@ def load_issues_data(brand_name) -> pd.DataFrame:
     """
     Loads the issues data from a fixed Excel path.
     """
+
+    def safe_eval(expr):
+        try:
+            return eval(expr)
+        except Exception:
+            return None
+
     issues_df = pd.read_excel(f'./checkpoints/G_generate_issue_kbs/{brand_name}/issue_kbs.xlsx')
-    issues_df[CUSTOMER_PERSONA_TITLES] = issues_df[CUSTOMER_PERSONA_TITLES].apply(eval)
-    issues_df[CUSTOMER_PERSONA_DESCRIPTIONS] = issues_df[CUSTOMER_PERSONA_DESCRIPTIONS].apply(eval)
+    issues_df[CUSTOMER_PERSONA_TITLES] = issues_df[CUSTOMER_PERSONA_TITLES].apply(safe_eval)
+    issues_df[CUSTOMER_PERSONA_DESCRIPTIONS] = issues_df[CUSTOMER_PERSONA_DESCRIPTIONS].apply(safe_eval)
     issues_df[INFO_KBS] = issues_df[INFO_KBS].apply(
-        lambda x: [eval(item) if isinstance(item, str) else item for item in eval(x)]
+        lambda x: [safe_eval(item) if isinstance(item, str) else item for item in safe_eval(x)]
     )
+    rows_with_none = issues_df.isnull().any(axis=1).sum()
+    print(f"Number of rows with at least one None/NaN value: {rows_with_none}")
+    print("-" * 30)
+    assert rows_with_none <= 0.01*len(issues_df)
+
+    issues_df.dropna(how='any', inplace=True)
+
     return issues_df
 
 def unify_issues_in_brand_index(issues_df: pd.DataFrame, brand_index: dict) -> None:

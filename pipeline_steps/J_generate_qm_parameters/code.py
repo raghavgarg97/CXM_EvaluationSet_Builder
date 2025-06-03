@@ -119,7 +119,7 @@ async def process_new_question(
         temperature=0.1
     )
     verifier_decision = parse_json(verifier_response)
-    decision = verifier_decision.get("decision", "")
+    decision = verifier_decision.get("decision", "") if verifier_decision else 'IGNORE'
 
     # If no existing questions yet, force creation if not decided
     if len(existing_questions) == 0 and decision != "CREATE_NEW":

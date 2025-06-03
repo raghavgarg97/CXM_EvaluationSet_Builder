@@ -72,6 +72,7 @@ class LLM:
 
         payload = self._generate_payload(roles_and_messages, system_message, perspective, model_name,
                                          add_prompter, **kwargs)
+        # print("payload is:", json.dumps(payload, indent=2))
         try:
             responses = await self._call_router_async([payload])
             response = responses[0]

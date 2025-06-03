@@ -125,7 +125,7 @@ async def process_new_issue(
         temperature=0.1
     )
     verifier_decision = parse_json(verifier_response)
-    decision = verifier_decision.get("decision", "")
+    decision = verifier_decision.get("decision", "") if verifier_decision else 'IGNORE'
 
     if len(existing_issues) == 0:
         decision = "CREATE_NEW"

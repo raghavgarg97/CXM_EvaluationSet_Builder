@@ -56,17 +56,32 @@ PROMPTS = {
 def process_and_explode(df: pd.DataFrame, columns_to_process: List[str]) -> pd.DataFrame:
     df_processed = df.copy()
 
+    def safe_eval(expr):
+        if not isinstance(expr, str):
+            return expr
+
+        try:
+            return eval(expr)
+        except Exception:
+            return None
+
     # 1. Convert string representations to lists safely
     for col in columns_to_process:
         if col not in df_processed.columns:
             raise ValueError(f"Column '{col}' not found in DataFrame.")
         try:
             df_processed[col] = df_processed[col].apply(
-                lambda x: ast.literal_eval(x) if isinstance(x, str) else x
+                lambda x: safe_eval(x) if isinstance(x, str) else x
             )
         except (ValueError, SyntaxError) as e:
             print(f"Error converting column '{col}': {e}. Ensure strings are valid literals.")
             raise  # Halt execution on conversion error
+
+    rows_with_none = df_processed.isnull().any(axis=1).sum()
+    print(f"Number of rows with at least one None/NaN value while exploding df: {rows_with_none}")
+    print("-" * 30)
+    assert rows_with_none <= 0.01 * len(df_processed)
+    df_processed.dropna(how='any', inplace=True)
 
     # 2. Check list length consistency per row
     def _check_row_lengths(row):
@@ -119,12 +134,22 @@ def preprocess(brand_name: str):
     # Add tools to issue_df and brand_index
     issue_df['tools'] = issue_df.uID.apply(lambda x: list(issueid2tools.get(x, []))).tolist()
     for _, row in issue_df.iterrows():
-        brand_index[f"Issues->{row.l3_intent}->{row.issue_cluster_title}"]['tools'] = row.tools
+        key = f"Issues->{row.l3_intent}->{row.issue_cluster_title}"
+        if key in brand_index:
+            brand_index[key]['tools'] = row.tools
+        else:
+            print(f"Key '{key}' not found in brand index.")
 
     issue_df['info_kbs_consolidated'] = issue_df.info_kbs.apply(
         lambda curr_info_kbs: [y for x in ast.literal_eval(curr_info_kbs) for y in x]
     )
     issue_df['info_kbs_consolidated'] = issue_df['info_kbs_consolidated'].apply(lambda x: list(set(x)))
+
+    rows_with_none = issue_df.isnull().any(axis=1).sum()
+    print(f"Number of rows with at least one None/NaN value: {rows_with_none}")
+    print("-" * 30)
+    assert rows_with_none <= 0.01 * len(issue_df)
+    issue_df.dropna(how='any', inplace=True)
 
     issue_df_exploded = process_and_explode(issue_df, columns_to_process=['customer_persona_titles',
                                                                           'customer_persona_descriptions', 'info_kbs'])
@@ -260,7 +285,7 @@ async def modify_agent_persona_qm(agent_personas, no_percentage):
     results = await llm.chat_batch(
         filter_qm_prompts,
         task_name='filer_qm_rules',
-        model_name='gpt-4.1',
+        model_name='gpt',
         add_prompter=True,
         batch_size=10
     )
@@ -386,6 +411,8 @@ KB content:
 def parse_output_agent_str(response_text):
     response_obj = parse_json(response_text)
     if not response_obj:
+        print("Failed to parse response from agent: {}".format(response_text))
+        raise Exception("Failure occured")
         return response_text, "MODEL_FAILURE", "MODEL_FAILURE"
 
     return response_obj['message'], response_obj['category'], response_obj['source']
@@ -400,7 +427,7 @@ async def mock_tool_calls_batch(tool_specs_and_args, conversation_history_string
     ]
     # print("Mock tool call prompts are:", '\n\n'.join(prompts))
     results = await llm.chat_batch(prompts, task_name='mock_tool_call', batch_size=10, model_name='gemini-flash',
-                                   use_tqdm=False)
+                                   use_tqdm=False, add_prompter=True)
     # print("Mock tool call results are:", '\n\n'.join(results))
     results_parsed = [parse_json(x, default_json={'mock_tool_result': 'TOOL CALL FAILED', 'sufficient_data': "NO"}) for
                       x in results]
@@ -641,7 +668,7 @@ async def run_simulations(
         n_semaphores: int,
         max_turns: int,
         conv_lang:str,
-        agent_llm: str = 'gpt-4.1',
+        agent_llm: str = 'gpt',
         customer_llm: str = 'gemini-flash'
 ):
     assert len(agent_personas) == len(customer_personas)
@@ -688,8 +715,8 @@ async def run_simulations(
             results.append(r)
 
     # 7) Dump once at the end
-    with open('./temp/greenbuild_convs.pkl', 'wb') as f:
-        pkl.dump(results, f)
+    # with open('./temp/greenbuild_convs.pkl', 'wb') as f:
+    #     pkl.dump(results, f)
 
     return results
 
@@ -737,7 +764,7 @@ async def process(brand_name, brand_description, n_convs, n_semaphores, max_turn
         brand_index=brand_index,
         agent_personas=agent_personas,
         customer_personas=customer_personas,
-        agent_llm='gpt-4.1',
+        agent_llm='gpt',
         customer_llm='gemini-flash',
         max_turns=max_turns,
         tools_dict=tools_dict,

@@ -1,0 +1,37 @@
+Given the insights, conversation, and questions, revise the following answers strictly adhering to confidence criteria as previously described.
+The answer would be one of the following:
+- "Yes": The agent clearly performed well regarding the criteria in the question.
+- "No": The agent clearly performed poorly or inadequately regarding the criteria in the question.
+- "NA": The conversation did not provide any relevant scenario or sufficient context to evaluate the agent against this specific criteria.
+
+Sample Response Format:
+[
+    {
+        "Question": "<Question>",
+        "Explanation": "<Explanation>",
+        "Answer": "<Yes or No or NA>",
+        "proof_message_ids": [<List of message IDs or empty if answer is no/na>],
+        "confidence_score": "<1-5>"
+    },
+    ...
+]
+
+response field definition
+1. Question: Question for which answer is given 
+2. Explanation: Provide a detailed explanation for your answer. Explanation must be in english language.
+3. Answer: Answer the given question as "Yes" or "No" or "NA".
+4. proof_message_ids: If the answer is "Yes", share the exact message IDs (e.g., Message-ID: ABC) that support your answer to the point. Strictly do not share too many messageids (At max 5). If your answer is "No", share an empty list
+5. confidence_score: Give a score of 5 if you are 100% sure that the question has been correctly answered. Give a score of 3 or 4 if there is even a little ambiguity in the answer provided - even a hint of doubt should get a lower confidence score, This is crucial to determine if the conversation is clear or not! A score of less than 3 if there is doubt in your answers. 
+
+Read the following conversation between customer and agent carefully and given question and descriptions. Answer the question in the json format. You are also given other insights to help you generate your answers.
+
+Conversation:
+{conv}
+
+List of Questions:
+{questions}
+
+Other Insights:
+{insights}
+
+Important: Be very strict on generating your answers. If the question is not properly addressed in the conversation then give it a low confidence scoring. The agent should follow the question in detail to the point. Any particular point, if missing should be given a LOWER CONFIDENCE SCORING. 

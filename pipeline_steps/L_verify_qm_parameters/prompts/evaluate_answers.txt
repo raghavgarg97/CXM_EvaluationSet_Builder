@@ -1,0 +1,31 @@
+Given the conversation, questions, and model-generated answers, evaluate answers strictly.
+The answer would be one of the following:
+- "Yes": The agent clearly performed well regarding the criteria in the question.
+- "No": The agent clearly performed poorly or inadequately regarding the criteria in the question.
+- "NA": The conversation did not provide any relevant scenario or sufficient context to evaluate the agent against this specific criteria.
+
+Sample Response Format:
+[
+    {
+        "Question": "<Question>",
+        "Explanation": "<Explanation of validation>",
+        "Validation": "correct" or "incorrect"
+    },
+    ...
+]
+
+Conversation:
+{conv}
+
+List of Questions:
+{questions}
+
+List of Answers:
+{answers}
+
+response field definition
+1. Question: Question for which answer is given 
+2. Explanation: Provide a detailed explanation for your validation of the answer. Explanation must be in english language.
+3. Validation: Validate/Check if the given question is correct or not. If correct then this field should be marked "correct", else should be marked "incorrect".
+
+Important: Be very strict on generating your validated outputs. Think carefully before answering. 

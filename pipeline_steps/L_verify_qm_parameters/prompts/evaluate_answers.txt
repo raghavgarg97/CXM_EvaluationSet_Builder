@@ -6,11 +6,11 @@ The answer would be one of the following:
 
 Sample Response Format:
 [
-    {
+    {{
         "Question": "<Question>",
         "Explanation": "<Explanation of validation>",
         "Validation": "correct" or "incorrect"
-    },
+    }},
     ...
 ]
 
@@ -28,4 +28,4 @@ response field definition
 2. Explanation: Provide a detailed explanation for your validation of the answer. Explanation must be in english language.
 3. Validation: Validate/Check if the given question is correct or not. If correct then this field should be marked "correct", else should be marked "incorrect".
 
-Important: Be very strict on generating your validated outputs. Think carefully before answering. 
+Important: Be very strict on generating your validated outputs. Think carefully before answering.

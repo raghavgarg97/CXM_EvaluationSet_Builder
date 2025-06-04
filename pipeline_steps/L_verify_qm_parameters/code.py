@@ -1,18 +1,20 @@
 import os
 import json
+import random
+import pandas as pd
 import asyncio
 import pickle as pkl
 from typing import Any, List
 
 from utils.llm_helper import LLM
 
-CURR_PIPELINE_STEP = "L_verify_qm_paramters"
+CURR_PIPELINE_STEP = "L_verify_qm_parameters"
 MODEL_NAME = "gemini-flash"
 BATCH_SIZE = 5
 TEMPERATURE = 1
 MAX_COMPLETION_TOKENS = 4096
 
-PROMPT_DIR = os.path.join("pipeline_steps", CURR_PIPELINE_STEP, "prompts")
+PROMPT_DIR = os.path.join("./pipeline_steps", CURR_PIPELINE_STEP, "prompts")
 PROMPT_FILE_GET = "get_answers"
 PROMPT_FILE_EVAL = "evaluate_answers"
 PROMPT_FILE_FIX = "fix_answers"
@@ -20,7 +22,7 @@ PROMPT_FILE_FIX = "fix_answers"
 llm = LLM(log_file_name=CURR_PIPELINE_STEP)
 
 def load_prompt(file_name: str) -> str:
-    path = os.path.join(PROMPT_DIR, file_name)
+    path = os.path.join(PROMPT_DIR, f"{file_name}.txt")
     with open(path, "r") as f:
         return f.read()
 
@@ -43,8 +45,6 @@ def extract_json_list(text: str) -> str:
         return text[start:end+1]
     return text
 
-
-import pandas as pd
 
 
 def extract_convs(conv_objects):
@@ -74,10 +74,43 @@ def get_qm_df(brand_name):
     df = pd.DataFrame({'Conversation': final_convs, 'Questions': final_ques})
     return df
 
+def break_ques_list(qm_res, lower_bound=3, upper_bound=4):
+    l = 0
+    new_list = []
+    while l < len(qm_res):
+        r = l + random.randint(lower_bound, upper_bound)
+        new_list.append(qm_res[l:r])
+        l = r
+    return new_list
+
+def split_qm_questions(df):
+    new_conv = []
+    new_qm_ques = []
+    number_of_metrics = []
+
+    for _, row in df.iterrows():
+        curr_qm_ques = break_ques_list(eval(row['gpt-answers']))
+        new_qm_ques.extend(curr_qm_ques)
+        new_conv.extend([row['Conversation']] * len(curr_qm_ques))
+        number_of_metrics.extend([len(x) for x in curr_qm_ques])
+
+    final_df = pd.DataFrame(
+        {
+            'conversation': new_conv,
+            'question_answers': new_qm_ques,
+            'num_of_metrics': number_of_metrics
+        }
+    )
+
+    return final_df
+
 async def process(brand_name):
     # Load data
     df = get_qm_df(brand_name)
     print(f"[{CURR_PIPELINE_STEP}] Loaded {len(df)} rows for brand {brand_name}")
+
+    df = df[:100]
+    print(f"Only using the first 100 rows for brand {brand_name}")
 
     # Step 1: Generate GPT answers
     df['ans_prompt'] = df.apply(
@@ -91,7 +124,7 @@ async def process(brand_name):
         batch_size=BATCH_SIZE,
         task_name="qm_generation",
         add_prompter=False,
-        use_tqdm=False
+        use_tqdm=True
     )
     df['gpt-answers'] = [
         safe_eval(extract_json_list(resp)) for resp in ans_responses
@@ -116,7 +149,7 @@ async def process(brand_name):
         batch_size=BATCH_SIZE,
         task_name="qm_evaluation",
         add_prompter=False,
-        use_tqdm=False
+        use_tqdm=True
     )
     df['evaluated_answers'] = [
         safe_eval(extract_json_list(resp)) for resp in eval_responses
@@ -146,7 +179,7 @@ async def process(brand_name):
             batch_size=BATCH_SIZE,
             task_name="qm_fixing",
             add_prompter=False,
-            use_tqdm=False
+            use_tqdm=True
         )
         to_fix['fixed_answers'] = [
             safe_eval(extract_json_list(resp), []) for resp in fix_responses
@@ -168,9 +201,15 @@ async def process(brand_name):
         if 'answer' in col.lower():
             df[col] = df[col].apply(lambda x: json.dumps(x, indent=4))
 
-    out_path = f"./checkpoints/{CURR_PIPELINE_STEP}/{brand_name}/qm_questions.xlsx"
-    df.to_excel(out_path, index=False)
-    print(f"[{CURR_PIPELINE_STEP}] Saved results to {out_path}, {len(df)} rows.")
+    out_dir = f"./checkpoints/{CURR_PIPELINE_STEP}/{brand_name}"
+    os.makedirs(out_dir, exist_ok=True)
 
-if __name__ == '__main__':
-    asyncio.run(process('TerraBloom'))
+    out_path = f"{out_dir}/qm_questions_intermediate.xlsx"
+    df.to_excel(out_path, index=False)
+
+    df_expanded = split_qm_questions(df)
+    out_path = f"{out_dir}/qm_questions.xlsx"
+    df_expanded.to_excel(out_path, index=False)
+
+    print(f"[{CURR_PIPELINE_STEP}] Saved results to {out_path}, {len(df)} rows.")
+    return df_expanded

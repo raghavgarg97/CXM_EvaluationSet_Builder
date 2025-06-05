@@ -1,0 +1,13 @@
+You are given a group of very similar product/service types, which share key words in their names and are likely variants or sub-types of a broader, but still specific, product category. Here are the names:
+
+{cluster_list}
+
+Your task:
+1. Suggest one concise, granular, but still appropriately broad product/service name that could replace all of these.
+2. DO NOT suggest a very generic label (such as "Products", "Lighting", "General Items", or "Sustainable Home Building"—it should still clearly indicate the type).
+3. If after merging, you feel the result would create a category that is too broad or loses granularity (i.e., the merged category would simply be "Sustainable Home Building", "Home Solutions", or another very large cluster), **output DO_NOT_MERGE** instead of suggesting a name, and do NOT merge the categories.
+4. Your output should be just the new product/service name as text, OR "DO_NOT_MERGE" (if appropriate).
+5. Try to keep the merged name as specific and granular as possible.
+
+Example: ["LED Bulbs", "LED Under-Cabinet Lights"] --> "LED Lighting"
+Example: ["Solar Water Heater", "Rainwater Collection Tank", "Compost Bin"] --> "DO_NOT_MERGE"

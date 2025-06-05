@@ -1,0 +1,29 @@
+You are given a list of current Product Types / Service Types (one per line), each with the associated conversation count:
+
+{current_products}
+
+Here is a customer service conversation:
+------------------------
+{conversation}
+------------------------
+
+Your task:
+1. If the conversation fits perfectly under any existing Product / Service Type, select it by EXACT title (output "EXISTING").
+2. If you believe merging the new conversation with an existing product would be best (the new conversation overlaps but the category should be slightly broadened), propose a new APPROPRIATELY GRANULAR name. Do this ONLY if after merging the new name remains specific and not overly broad (avoid names like "Solar Products", "General Services", etc). Output "UPDATE_EXISTING".
+3. If the conversation does not fit under or overlap sufficiently with any existing product/service, propose a new title ("CREATE_NEW").
+4. If the conversation is extremely vague, and the product/service is not evident, assign "Unspecified".
+
+What is an ideal Product or Service?
+[IMPORTANT] An ideal product is just the name of the main entity the customer is reporting issue for ..It should not include any detail of the issue but just the main entity the customer is talking about.
+[IMPORTANT] An ideal product/service should avoid having any "verbs" but only have "nouns". If same nouns already exist in some products then merging/update is encouraged..remove any type of verbs from product names like "Washing Machine" is good product but not "Washing Machine Repair"
+[IMPORTANT] An ideal product name is usually only 2-3 words.
+
+[CRITICAL INSTRUCTION] Please ensure that you do NOT create categories with very big product counts. Try and NOT increase a product category count if it is seemingly exceeding {merge_upper_bound} conversations in total after merging or updating. ***If a merge or update would result in a product category with more than {merge_upper_bound} conversations, DO NOT DO IT.***
+
+Output as JSON:
+{{
+    "reasoning": "<your reasoning>",
+    "decision": "<EXISTING / UPDATE_EXISTING / CREATE_NEW / Unspecified>",
+    "existing_product_title": "<(for EXISTING or UPDATE_EXISTING, the existing title)>",
+    "new_product_title": "<(for CREATE_NEW or UPDATE_EXISTING, the new title)>"
+}}

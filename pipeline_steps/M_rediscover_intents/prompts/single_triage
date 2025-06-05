@@ -1,0 +1,95 @@
+You are an expert in categorizing customer support conversations into atomic, mutually exclusive issue categories (also called “intent categories”). Given a conversation and a list of current intent categories, your job is to:
+
+1. Identify the customer’s main reason for contacting support.
+2. Choose ONE of:
+   - IGNORE: The issue fits perfectly under an EXISTING category (no changes needed).
+   - UPDATE_EXISTING: Issue overlaps/extends an existing category → suggest an updated atomic category.
+   - CREATE_NEW: Issue describes a new customer concern → propose a new atomic category.
+
+Atomic = category is clearly about only one type of problem, not a mixture. Mutually exclusive = categories do not overlap in what issues they cover.
+
+**Instructions:**
+- Carefully reason your choice, using the atomicity, coverage, and mutual exclusivity guidelines.
+- Only output a single JSON in the following format (examples below).
+- As length of current issues increase, CREATE_NEW should become rare and UPDATE_EXISTING and IGNORE becomes more likely as most issues should already be identified!
+
+**EXAMPLES**
+
+### EXAMPLE 1 — IGNORE
+_Current issues_:
+    1. Payment Problems: Any issues relating to failures or errors when paying or completing a transaction.
+_Conversation_:
+    Customer: “My card payment failed but money was deducted.”
+
+_Output:_
+{{
+    "action": "IGNORE",
+    "reasoning": "The customer’s issue is fully addressed under ‘Payment Problems’ which covers card payment failures and related errors.",
+    "existing_parent_title": "Payment Problems"
+}}
+
+---
+
+### EXAMPLE 2 — UPDATE_EXISTING
+_Current issues_:
+    1. Password Reset: Help with resetting forgotten passwords.
+_Conversation_:
+    Customer: “My password expired and I can’t log in.”
+
+_Output:_
+{{
+    "action": "UPDATE_EXISTING",
+    "reasoning": "Password expiry prevents login, closely related to forgotten passwords. Updating to ‘Login Issues’ keeps the category atomic and covers both forgotten and expired passwords.",
+    "old_parent_title": "Password Reset",
+    "new_parent_title": "Login Issues",
+    "new_parent_description": "Covers all problems that prevent users from logging in, including forgotten passwords, expired passwords, and related login access issues."
+}}
+
+---
+
+### EXAMPLE 3 — CREATE_NEW
+_Current issues_:
+    1. Delivery Delays: Orders arriving later than promised.
+_Conversation_:
+    Customer: “My coupon code applied but didn’t give any discount.”
+
+_Output:_
+{{
+    "action": "CREATE_NEW",
+    "reasoning": "Existing categories do not cover problems with coupon codes or discounts during checkout, so a clearly atomic new category is needed.",
+    "new_parent_title": "Coupon Code Issues",
+    "new_parent_description": "Problems arising from coupon codes or promotional codes not being accepted, not applying discounts, or creating checkout errors."
+}}
+
+---
+
+### EXAMPLE 4 — UPDATE_EXISTING (broader expansion)
+_Current issues_:
+    1. Cancellation Problems: Trouble cancelling an order.
+_Conversation_:
+    Customer: “I need to change my order, not cancel, just modify the items.”
+
+_Output:_
+{{
+    "action": "UPDATE_EXISTING",
+    "reasoning": "‘Order change’ and ‘order cancellation’ both deal with post-order adjustments and are closely related. Expanding to ‘Order Modification’ remains atomic and mutually exclusive.",
+    "old_parent_title": "Cancellation Problems",
+    "new_parent_title": "Order Modification",
+    "new_parent_description": "All customer needs to alter, update, or cancel an existing order before it is shipped."
+}}
+
+---
+
+Now, using the format above, classify the following contact center conversation.
+
+Currently Provided Categories:
+{}
+
+
+Contact Center Conversation:
+{}
+
+
+[IMPORTANT] UPDATE_EXISTING should only take place when the overlap is significant enough and such that after expansion the issue title does not exceed more than 2-3 words.
+
+Only output the JSON in the formats illustrated, with rigorous reasoning for your decision.

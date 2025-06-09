@@ -249,7 +249,7 @@ def save_conv_df(
     conv_df: pd.DataFrame,
     brand_name: str
 ):
-    save_dir = f"./pipeline_steps/{CURR_PIPELINE_STEP}/data/{brand_name}/{MODEL_TO_USE}"
+    save_dir = f"./checkpoints/{CURR_PIPELINE_STEP}/{brand_name}/{MODEL_TO_USE}"
     os.makedirs(save_dir, exist_ok=True)
     conv_df.to_excel(f"{save_dir}/conversations_tagged.xlsx", index=False)
     return conv_df
@@ -258,7 +258,7 @@ def save_taxonomies(
     taxonomies: Dict[str, Any],
     brand_name: str
 ):
-    save_dir = f"./pipeline_steps/{CURR_PIPELINE_STEP}/data/{brand_name}/{MODEL_TO_USE}"
+    save_dir = f"./checkpoints/{CURR_PIPELINE_STEP}/{brand_name}/{MODEL_TO_USE}"
     os.makedirs(save_dir, exist_ok=True)
     with open(f"{save_dir}/product_level_taxonomies.pkl", "wb") as f:
         pkl.dump(taxonomies, f)

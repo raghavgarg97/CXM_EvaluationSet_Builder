@@ -87,11 +87,13 @@ def split_qm_questions(df):
     new_conv = []
     new_qm_ques = []
     number_of_metrics = []
+    conversation_ids = []
 
     for _, row in df.iterrows():
         curr_qm_ques = break_ques_list(eval(row['gpt-answers']))
         new_qm_ques.extend(curr_qm_ques)
-        new_conv.extend([row['Conversation']] * len(curr_qm_ques))
+        new_conv.extend([row['Conversation'] for _ in range(len(curr_qm_ques))])
+        conversation_ids.extend([_+1 for _ in range(len(curr_qm_ques))])
         number_of_metrics.extend([len(x) for x in curr_qm_ques])
 
     final_df = pd.DataFrame(

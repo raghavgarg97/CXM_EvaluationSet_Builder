@@ -29,6 +29,8 @@ from pipeline_steps.H_generate_info_kbs.code import process as process_H
 from pipeline_steps.I_generate_tools.code import process as process_I
 from pipeline_steps.J_generate_qm_parameters.code import process as process_J
 from pipeline_steps.K_simulate_conversations.code import process as process_K  # Uncomment if needed
+from pipeline_steps.M_rediscover_intents.code import process as process_M
+from pipeline_steps.N_create_task_specific_datasets.code import process as process_N
 
 async def main():
     print("Running A_index_generation...")
@@ -71,6 +73,13 @@ async def main():
         get_new_personas=sim_get_new_personas,
         conv_lang=conv_lang
     )
+
+    print("Running M_rediscover_intents...")
+    await process_M(brand_name)
+
+    print("Running N_create_task_specific_datasets...")
+    process_N(brand_name)
+
     print("Pipeline complete!")
 
 if __name__ == "__main__":

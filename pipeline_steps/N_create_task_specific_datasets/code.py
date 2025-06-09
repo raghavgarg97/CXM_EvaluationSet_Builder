@@ -217,7 +217,7 @@ def dump_file(brand_name, obj, file_name):
 
     print(f"File saved to {file_path}")
 
-def export_datasets(brand_name, intent_model='gpt-4.1-mini'):
+def export_datasets(brand_name, intent_model):
     articles_df, kb2id = get_articles_df(brand_name)
     dump_file(brand_name, articles_df, "articles.xlsx")
     dump_file(brand_name, kb2id, "kb2ids.pkl")
@@ -238,6 +238,9 @@ def export_datasets(brand_name, intent_model='gpt-4.1-mini'):
     tool_calling_df = get_tool_calling_dataset(brand_name, kb2id)
     dump_file(brand_name, tool_calling_df, "tool_calls.xlsx")
 
+def process(brand_name, intent_model='gpt-4.1-mini'):
+    export_datasets(brand_name, intent_model)
+
 if __name__ == "__main__":
     brand_name = 'TerraBloom'
-    export_datasets(brand_name)
+    process(brand_name)

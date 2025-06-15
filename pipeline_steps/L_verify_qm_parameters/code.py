@@ -111,8 +111,8 @@ async def process(brand_name):
     df = get_qm_df(brand_name)
     print(f"[{CURR_PIPELINE_STEP}] Loaded {len(df)} rows for brand {brand_name}")
 
-    df = df[:100]
-    print(f"Only using the first 100 rows for brand {brand_name}")
+    # df = df[:100]
+    # print(f"Only using the first 100 rows for brand {brand_name}")
 
     # Step 1: Generate GPT answers
     df['ans_prompt'] = df.apply(

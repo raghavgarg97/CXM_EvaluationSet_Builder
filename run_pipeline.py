@@ -14,6 +14,7 @@ from pipeline_steps.H_generate_info_kbs.code import process as process_H
 from pipeline_steps.I_generate_tools.code import process as process_I
 from pipeline_steps.J_generate_qm_parameters.code import process as process_J
 from pipeline_steps.K_simulate_conversations.code import process as process_K
+from pipeline_steps.L_verify_qm_parameters.code import process as process_L
 from pipeline_steps.M_rediscover_intents.code import process as process_M
 from pipeline_steps.N_create_task_specific_datasets.code import process as process_N
 
@@ -135,6 +136,9 @@ async def run_pipeline(
         get_new_personas=sim_get_new_personas,
         conv_lang=conv_lang
     )
+
+    print("\nRunning L_verify_qm_parameters...")
+    await process_L(brand_name=brand_name)
 
     print("\nRunning M_rediscover_intents...")
     await process_M(brand_name)

@@ -488,13 +488,14 @@ async def process(brand_name: str):
     final_tools_dict = await recluster_tools(brand_name, tools_dict)
 
     # dump final pickle
-    ckpt_dir = f'./checkpoints/I_generate_tools/{brand_name}'
+    ckpt_dir = f'./checkpoints/{CURR_PIPELINE_STEP}/{brand_name}'
+    logs_dir = f'./llm_logs'
     out_path = os.path.join(ckpt_dir, 'tools_dict_o4_final.pkl')
     pkl.dump(tools_dict, open(out_path, 'wb'))
     print(f"Re-clustering complete, final saved to {out_path}")
 
     # Dump the LLM call logs
-    logs_path = os.path.join(ckpt_dir, 'llm_logs.json')
+    logs_path = os.path.join(logs_dir, f'{CURR_PIPELINE_STEP}.json')
     with open(logs_path, 'w') as f:
         json.dump(LLM_LOGS, f, indent=2)
     print(f"LLM logs saved to {logs_path}")

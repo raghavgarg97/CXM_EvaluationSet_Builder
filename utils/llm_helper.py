@@ -37,7 +37,7 @@ class LLM:
                 exp_base=self.config["retry_config"]["initial_delay"]
             ),
             before_sleep=before_sleep_log(logger, logging.DEBUG),
-            retry_error_callback=lambda retry_state: [None for _ in range(len(retry_state.args[1]))]
+            retry_error_callback=lambda retry_state: [None] * len(retry_state.args[0])
         )(self._call_router_async_core)
 
         self.base_payload = self.config["base_payload"]

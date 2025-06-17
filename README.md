@@ -46,8 +46,7 @@ Each step is implemented as an async Python module with a `process` function, an
   ```
 
 ### Running the Pipeline
-
-To run the pipeline, use the main entrypoint script `run_pipeline.py`. This script takes configuration parameters for the brand name, description, and step-specific settings.
+The first step is to go to the configs folder and to determine all the categories for which you want the KBs, you can edit the names, descriptions and depth (a tree would be created corresponding to category) of each section. The categories 'Product Range' and 'Services Range' are mandatory though. Once this step is done - To run the pipeline, use the main entrypoint script `run_pipeline.py`. This script takes configuration parameters for the brand name, description, and step-specific settings.
 
 **Example:**
 ```bash

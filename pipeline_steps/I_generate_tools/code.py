@@ -236,8 +236,8 @@ async def dedupe_and_merge(df: pd.DataFrame):
         pl["messages"][0]["content"] = prompt.format(lst, f"{row.tool_name} : {row.tool_description}")
 
         # call LLM synchronously
-        res = await call(pl)
         try:
+            res = await call(pl)
             out = json.loads(res["choices"][0]["message"]["content"]
                              .strip("```").strip("json"))
         except:
@@ -329,8 +329,8 @@ async def disambiguate_tools(currently_identified: dict, df_tools):
         pl["messages"][0]["content"] = prompt.format(lst,
                                                      f"{row.tool_name} : {row.tool_description}")
 
-        res = await call(pl)
         try:
+            res = await call(pl)
             decs = json.loads(res["choices"][0]["message"]["content"]
                               .strip("```").strip("json"))
             if not isinstance(decs, list):

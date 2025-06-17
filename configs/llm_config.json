@@ -37,6 +37,10 @@
       "model": "o3-mini",
       "provider": "OPEN_AI"
     },
+    "o4-mini": {
+      "model": "o4-mini",
+      "provider": "OPEN_AI"
+    },
     "gpt-mini": {
       "model": "gpt-4o-mini",
       "provider": "OPEN_AI"

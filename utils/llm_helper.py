@@ -270,7 +270,7 @@ class LLM:
             payload["response_format"] = {"type": "json_object"}
 
         # Adjust maximum tokens for models with specific naming patterns.
-        if any(x in payload["model"] for x in ["o1", "o3"]):
+        if any(x in payload["model"] for x in ["o1", "o3", "o4"]):
             payload["max_completion_tokens"] = payload["max_tokens"]
             payload.pop("max_tokens", None)
 

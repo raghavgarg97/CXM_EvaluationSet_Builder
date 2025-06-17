@@ -60,7 +60,11 @@ Each step is implemented as an async Python module with a `process` function, an
   ```
 
 ### Running the Pipeline
-The first step is to go to the configs folder and to determine all the categories for which you want the KBs, you can edit the names, descriptions and depth (a tree would be created corresponding to category) of each section. The categories 'Product Range' and 'Services Range' are mandatory though. Once this step is done - To run the pipeline, use the main entrypoint script `run_pipeline.py`. This script takes configuration parameters for the brand name, description, and step-specific settings.
+The first step is to go to the configs folder and to create a brand configuration (configs/specific_brand_data/<BRAND_NAME>.json) for all the categories for which you want the KBs, you can edit the names, descriptions and depth (a tree would be created corresponding to category) of each section. The categories 'Product Range' and 'Services Range' are mandatory though.
+
+If you do not provide it, the default configuration file would be used.
+
+Once this step is done - To run the pipeline, use the main entrypoint script `run_pipeline.py`. This script takes configuration parameters for the brand name, description, and step-specific settings.
 
 **Example:**
 ```bash
@@ -73,23 +77,10 @@ This will:
 - Simulate conversations in the specified language
 - Create evaluation sets for all specified Sprinklr services
 
-### Configuration
-
-The pipeline can be configured through command-line arguments or by modifying the default settings in `run_pipeline.py`:
-
-- **Brand Settings:**
-  - `brand_name`: Name of the brand
-  - `brand_overview`: Detailed description of the brand
-  - `kb_lang`: Language for knowledge base generation (default: "en")
-
-- **Pipeline Parameters:**
-  - `num_conversations`: Number of conversations to simulate
-  - `max_turns`: Maximum turns per conversation
-  - `concurrency`: Number of concurrent operations
-  - `checkpoint_dir`: Directory for saving intermediate outputs
 
 ### Customization
 
+- **Brand Configuration:** Add the configuration required to generate KBs for your brand.
 - **Step Parameters:** Adjust concurrency, number of conversations, max turns, etc., as needed.
 - **Partial Pipeline:** You can import and call individual step modules directly for experimentation.
 

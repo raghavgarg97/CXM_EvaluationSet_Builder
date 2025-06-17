@@ -1,4 +1,4 @@
-# CXMArena Synthetic CXM Benchmark Pipeline
+# CXMArena: Dataset Generation Pipeline
 
 A modular, extensible pipeline for generating, clustering, and simulating customer support knowledge and conversations for brands, designed to create large-scale, realistic synthetic datasets for Customer Experience Management (CXM) research and benchmarking.
 
@@ -6,12 +6,26 @@ A modular, extensible pipeline for generating, clustering, and simulating custom
 
 This repository implements a comprehensive data generation pipeline that enables the creation of synthetic, brand-specific datasets that simulate real-world CXM scenarios, including knowledge base (KB) construction, issue and intent clustering, conversation simulation, and the derivation of task-specific benchmark datasets. The generated data supports rigorous evaluation of AI models on operational CXM tasks such as knowledge base refinement, intent prediction, agent quality adherence, article search, and multi-turn retrieval-augmented generation (RAG).
 
+The pipeline is specifically designed to create datasets to evaluate the following Sprinklr services:
+- Contact Drivers
+- Quality Management (QM)
+- FAQbot
+- Smart Comprehend
+- KB Refinement
+- KB Gap Analysis
+- Function Calling
+
 **Key Features:**
 - **Brand Customization:** Easily instantiate the pipeline for any fictional or real brand by providing a brand name and description.
 - **LLM-Driven Generation:** Leverages state-of-the-art LLMs (OpenAI, Google Vertex, etc.) for all generative and clustering steps.
 - **Multi-Step Modular Pipeline:** Each step is a standalone Python module, enabling flexible experimentation and extension.
 - **Task-Specific Dataset Creation:** Outputs labeled datasets for five core CXM tasks.
 - **Concurrent and Scalable:** Supports async and batched processing for efficient large-scale data generation.
+
+## Research and Resources
+
+- **Research Paper:** [CCAI Evaluation Sets: A Comprehensive Pipeline for Synthetic Dataset Generation](https://arxiv.org/abs/2505.09436)
+- **Cost Analysis:** [CCAI Evaluation Set Cost Analysis](https://sprinklr.atlassian.net/wiki/spaces/Intuition/pages/4879778185/CCAI+Evaluation+Set+Cost+Analysis)
 
 ## Pipeline Structure
 
@@ -56,7 +70,7 @@ python run_pipeline.py --brand_name "TerraBloom" --brand_overview "A sustainable
 This will:
 - Generate and cluster KBs and issues for the specified brand
 - Simulate conversations in the specified language
-- Output labeled datasets for all benchmark tasks
+- Create evaluation sets for all specified Sprinklr services
 
 ### Configuration
 
@@ -96,14 +110,5 @@ ccai_evaluation_sets/
 └── README.md                 # This file
 ```
 
-## License
-
-Specify your license here (e.g., MIT, Apache 2.0, CC-BY-NC 4.0, etc.).
-
-## Contact & Support
-
-For questions, support, or collaboration, please contact the maintainers via your internal channel or raise an issue in this repository.
-
----
 
 **Note:** This pipeline is intended for research and benchmarking purposes. The generated data is synthetic and does not contain real customer information.

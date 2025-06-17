@@ -66,6 +66,7 @@ The first step is to go to the configs folder and to determine all the categorie
 ```bash
 python run_pipeline.py --brand_name "TerraBloom" --brand_overview "A sustainable gardening brand..." --kb_lang "en"
 ```
+You can also look at 'sample_run.sh' for a detailed example.
 
 This will:
 - Generate and cluster KBs and issues for the specified brand
